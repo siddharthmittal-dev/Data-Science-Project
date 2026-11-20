@@ -1,0 +1,685 @@
+You are continuing the Agentic Clinic project in this repository.
+
+## Project context
+
+Agentic Clinic is an academic clinic-coordination application using synthetic data only. It is not a diagnostic, prescribing, emergency-care, or real-patient system.
+
+The finalized frontend design is **Terra**. Sage and Pulse were alternative design concepts and should not be treated as separate backends.
+
+The current Terra frontend is a browser-only prototype. Do not claim that backend, authentication, Oracle Cloud, RAG, or machine-learning features are implemented unless they are actually present and tested.
+
+Relevant existing files:
+
+- `outputs/Agentic-Clinic-Terra-Frontend/`
+- `outputs/Agentic-Clinic-Terra-Frontend.zip`
+- `outputs/Agentic-Clinic-Terra-Frontend-Details.md`
+- `outputs/agentic-clinic-handoff/Architecture-and-development-plan.md`
+
+First inspect the repository and existing files before changing anything.
+
+## Main objective
+
+Convert the Terra frontend prototype into a production-structured full-stack academic prototype with:
+
+1. Terra frontend
+2. FastAPI backend
+3. PostgreSQL database
+4. Secure authentication and authorization
+5. Appointment management
+6. Controlled care assistant
+7. Document upload and retrieval
+8. Insights analytics page
+9. Chronos-Bolt Small forecasting
+10. Oracle Cloud deployment
+11. Security, testing, observability, and documentation
+
+Use synthetic data only throughout development and demonstrations.
+
+## Important honesty rule
+
+The current frontend does not run an ML model. The Insights page currently displays fixed synthetic analytics. Implement Chronos-Bolt only after creating the backend data and job pipeline.
+
+Never present static values as model predictions. Clearly label:
+
+- Synthetic data
+- Forecast status
+- Model name and version
+- Dataset version
+- Forecast cutoff date
+- Forecast horizon
+- Baseline or fallback result
+- Evaluation metrics
+- Last successful run
+- Errors or stale results
+
+## Selected ML model
+
+Use:
+
+`amazon/chronos-bolt-small`
+
+Purpose:
+
+- Forecast daily scheduled appointment volume
+- Forecast clinic-wide or authorized clinic-level aggregates
+- Predict a seven-day horizon
+- Support capacity-planning insights only
+- Never make medical, triage, diagnosis, or automatic patient-access decisions
+
+Implementation requirements:
+
+- Use CPU-compatible inference first
+- Pin dependency versions
+- Record model revision and checksum
+- Cache model weights
+- Keep inference out of the HTTP request thread
+- Run inference through a background worker/job queue
+- Bound CPU, memory, execution time, and concurrency
+- Add job status: queued, running, succeeded, failed, stale
+- Make forecast jobs idempotent
+- Persist model metadata and data-version metadata
+- Add a deterministic fallback based on the previous corresponding weekday
+- Label the fallback as baseline, never as Chronos
+- Return a safe 503 or stale result when the model is unavailable
+- Never allow negative appointment counts in displayed output
+- Use the same transformation for inference, evaluation, and display
+
+## Forecast data design
+
+Create a reproducible synthetic appointment generator with:
+
+- Several months of daily data
+- Weekday/weekend patterns
+- Holiday and clinic-closure days
+- Appointment capacity limits
+- Appointment status transitions
+- Controlled random disturbances
+- Fixed random seed
+- Dataset version/hash
+- Generation timestamp
+- Scope and date range metadata
+
+Forecast target:
+
+`daily scheduled appointment count`
+
+Clarify that scheduled appointments represent planned clinic capacity and are not equivalent to true patient demand.
+
+Prevent leakage by using an explicit observation cutoff. Future cancellations or updates must not be included in historical input for a forecast.
+
+## Model evaluation
+
+Implement chronological rolling-window evaluation:
+
+1. Define multiple historical cutoff dates.
+2. Forecast a seven-day horizon for each cutoff.
+3. Run Chronos-Bolt Small.
+4. Run the previous-weekday baseline on the same windows.
+5. Compare actuals with predictions.
+6. Calculate:
+   - MAE
+   - Optional RMSE
+   - Bias
+   - Per-horizon MAE
+   - Prediction interval coverage
+   - Prediction interval width
+7. Store all evaluation metadata.
+8. Do not call intervals calibrated unless evaluation proves calibration.
+9. Clearly state that synthetic-data results do not prove real-clinic accuracy.
+
+## Insights page requirements
+
+Update the Terra Insights page to show:
+
+- Historical appointment-volume chart
+- Chronos median forecast
+- Forecast interval/range
+- Previous-weekday baseline
+- As-of date
+- Forecast horizon
+- Model identifier and revision
+- Dataset version
+- Last successful run
+- Forecast status
+- Loading state with skeleton loader
+- Error state
+- Stale-result state
+- Retry action
+- Baseline fallback explanation
+- MAE and baseline comparison
+- Definitions for all metrics
+- Synthetic-data disclaimer
+- Export CSV/JSON action
+- Accessible chart labels and table alternative
+
+Use optimistic updates only where safe. Do not optimistically display a forecast before the server confirms it.
+
+## Backend architecture
+
+Use:
+
+- Python
+- FastAPI
+- PostgreSQL
+- SQLAlchemy
+- Alembic
+- Pydantic
+- Background worker
+- Reverse proxy
+- Structured logging
+- Health and readiness endpoints
+
+Suggested backend modules:
+
+```text
+backend/
+  app/
+    main.py
+    config.py
+    api/
+      auth.py
+      users.py
+      clinics.py
+      doctors.py
+      appointments.py
+      assistant.py
+      documents.py
+      analytics.py
+      forecasts.py
+      audit.py
+    db/
+      session.py
+      models/
+      migrations/
+    schemas/
+    services/
+      booking_service.py
+      assistant_service.py
+      document_service.py
+      retrieval_service.py
+      analytics_service.py
+      forecast_service.py
+    ml/
+      chronos_adapter.py
+      baseline.py
+      evaluation.py
+      synthetic_data.py
+    workers/
+      queue.py
+      forecast_jobs.py
+      document_jobs.py
+    security/
+      authorization.py
+      csrf.py
+      sessions.py
+    tests/
+```
+
+## Core database entities
+
+Implement migrations and relationships for:
+
+- users
+- clinics
+- doctors
+- specialties
+- doctor_availability
+- appointments
+- appointment_events
+- documents
+- document_chunks
+- retrieval_index_metadata
+- assistant_proposals
+- assistant_actions
+- forecast_runs
+- forecast_points
+- forecast_evaluations
+- audit_events
+- idempotency_keys
+- background_jobs
+
+Use:
+
+- UUID identifiers
+- UTC timestamps
+- `timestamptz`
+- Explicit foreign keys
+- Unique constraints
+- Transaction boundaries
+- Version columns where useful
+- Soft deletion or documented deletion policy
+- Scope fields for clinic authorization
+
+## Authentication and authorization
+
+Support Google OIDC and GitHub OAuth through a server-side session design.
+
+Requirements:
+
+- Secure HTTP-only cookies
+- Secure and SameSite cookie settings
+- CSRF protection
+- Session rotation
+- No OAuth tokens in browser storage
+- No direct database access from the browser
+- Role-based access:
+  - patient
+  - doctor
+  - clinic administrator
+- Clinic-level authorization checks
+- Deny-by-default access
+- Generic 404/403 behavior where object disclosure is risky
+- Audit login, logout, permission changes, and sensitive actions
+
+## Appointment features
+
+Implement:
+
+- Browse doctors
+- View availability
+- Book appointment
+- Reschedule appointment
+- Cancel appointment
+- Appointment status history
+- Conflict-safe booking
+- Transactional slot locking
+- Idempotency keys
+- Duplicate-request protection
+- Confirmation screen
+- Undo toast only for reversible client interactions
+- Server-side authorization for every mutation
+
+Booking races must be tested with concurrent requests.
+
+## Care assistant
+
+The assistant must be controlled and non-autonomous.
+
+Flow:
+
+1. User asks a question.
+2. Server validates intent and permissions.
+3. Assistant returns an explanation or a proposed action.
+4. Any appointment mutation is shown as a proposal.
+5. User explicitly confirms.
+6. Server revalidates permissions and current state.
+7. Server executes an atomic transaction.
+8. Audit event is recorded.
+
+The assistant must not directly change appointments based only on generated text.
+
+Start with deterministic responses and extractive answers. Add a local model only behind a provider adapter after evaluation.
+
+## Documents and retrieval
+
+Implement:
+
+- Authorized document upload
+- File type and size validation
+- Safe generated storage paths
+- Background extraction
+- OCR only where required
+- Text chunking
+- BM25 or lexical retrieval first
+- Optional local embedding model after CPU/memory testing
+- Metadata filtering before model exposure
+- Citations and source references
+- Deletion and derived-data cleanup
+- Prompt-injection-resistant document handling
+- No unauthorized snippets in logs or responses
+
+If an LLM or embedding model is unavailable, return a deterministic extractive answer or an honest no-answer response.
+
+## UX requirements
+
+Use the agreed UX principles where they improve usability:
+
+- Aesthetic-usability effect
+- Hick’s Law
+- Fitts’s Law
+- Jakob’s Law
+- Miller’s Law
+- Doherty Threshold
+- Law of Proximity
+- Law of Similarity
+- Common Region
+- Visual Hierarchy
+- Progressive Disclosure
+- Recognition over Recall
+- Von Restorff Effect
+- Peak-End Rule
+- Goal-Gradient Effect
+- Serial Position Effect
+- Postel’s Law
+- Occam’s Razor
+- Feedback Loops
+- Tesler’s Law
+
+Use these implementation patterns:
+
+- Skeleton loaders
+- Optimistic updates only when safe
+- Command menu
+- Shortcut hints
+- Undo toast
+- Stale-while-revalidate
+- Pre-rendering where useful
+- Blur-hash or lightweight placeholders
+- View transitions
+- Swipe-to-dismiss sheets on touch layouts
+- Interruptible animations
+- Predictive back behavior
+- Adequate hit slop
+- Safe-area insets
+- One-time-code autofill
+- Tabular numbers for metrics
+- Balanced headlines
+- Continuous corners
+- Idempotency keys
+- Accessible focus states
+- Reduced-motion support
+- Keyboard navigation
+- Screen-reader labels
+- Responsive mobile layouts
+
+Maintain Terra’s visual identity:
+
+- Warm editorial palette
+- Serif display typography
+- Calm clinic-oriented tone
+- Spacious layout
+- Restrained motion
+- High contrast
+- Accessible controls
+- Clear data definitions
+
+Use Impeccable/Taste-style review principles to avoid generic dashboard design. Keep interfaces purposeful and distinct from Sage and Pulse.
+
+## API requirements
+
+Create versioned endpoints under `/api/v1`.
+
+At minimum:
+
+```text
+GET    /health
+GET    /ready
+GET    /api/v1/me
+GET    /api/v1/doctors
+GET    /api/v1/doctors/{id}/availability
+POST   /api/v1/appointments
+PATCH  /api/v1/appointments/{id}
+POST   /api/v1/appointments/{id}/cancel
+POST   /api/v1/assistant/messages
+POST   /api/v1/assistant/proposals/{id}/confirm
+POST   /api/v1/documents
+GET    /api/v1/documents
+DELETE /api/v1/documents/{id}
+GET    /api/v1/analytics/summary
+POST   /api/v1/forecasts/jobs
+GET    /api/v1/forecasts/latest
+GET    /api/v1/forecasts/{id}
+GET    /api/v1/analytics/evaluations
+GET    /api/v1/audit-events
+```
+
+Use consistent errors:
+
+- 400 malformed request
+- 401 unauthenticated
+- 403 unauthorized
+- 404 missing or intentionally hidden
+- 409 conflict
+- 413 oversized upload
+- 415 unsupported file
+- 422 validation failure
+- 429 rate limit
+- 500 safe internal error
+- 503 unavailable model/dependency
+
+Never return traces, credentials, OAuth tokens, secrets, or sensitive document content in errors.
+
+## Oracle Cloud deployment
+
+Target Oracle Cloud Infrastructure.
+
+Preferred academic prototype topology:
+
+- One OCI Compute VM
+- Private PostgreSQL service or protected database deployment
+- Private persistent storage for documents, indexes, PostgreSQL data, and model cache
+- Reverse proxy exposing only HTTPS
+- Background worker as an internal service
+- OCI VCN, security lists, and NSGs
+- Host firewall
+- Restricted SSH
+- HTTPS certificates
+- Secret configuration outside source control
+- Automated backups
+- Restore test
+- Resource monitoring
+- Log rotation
+
+Before provisioning, verify current OCI Always Free eligibility, ARM compatibility, regional capacity, quotas, storage limits, and billing requirements.
+
+Do not assume Always Free guarantees. Do not enable paid resources without explicit approval.
+
+Never expose publicly:
+
+- PostgreSQL
+- Worker ports
+- Model service ports
+- Internal document storage
+- Debug endpoints
+
+## Security audit
+
+Perform a security review covering:
+
+- OAuth/session security
+- CSRF
+- XSS
+- SQL injection
+- SSRF
+- Path traversal
+- Unsafe file parsing
+- Upload denial of service
+- Prompt injection
+- Unauthorized retrieval
+- Tenant/clinic data leakage
+- Booking race conditions
+- Replay of assistant proposals
+- Idempotency-key misuse
+- Secrets in logs
+- CORS
+- Rate limiting
+- Dependency vulnerabilities
+- Oracle firewall and network exposure
+- Backup and deletion risks
+
+Use the Cloudflare/security-audit workflow where applicable, but verify every finding against the actual code. Do not report hypothetical vulnerabilities as confirmed vulnerabilities.
+
+## Development phases
+
+Work in phases and maintain a detailed checklist.
+
+### Phase 0 — Repository audit
+
+- Inspect existing files
+- Identify current Terra frontend
+- Identify static/mock functionality
+- Confirm no Chronos integration exists
+- Create or update project README
+- Add `.gitignore`
+- Define environment configuration
+- Record architecture decisions
+
+### Phase 1 — Project foundation
+
+- Create backend package
+- Add dependency management
+- Add configuration validation
+- Add FastAPI app
+- Add health/readiness endpoints
+- Add logging
+- Add linting and formatting
+- Add test runner
+- Add local development instructions
+
+### Phase 2 — Database
+
+- Configure PostgreSQL
+- Create SQLAlchemy models
+- Create Alembic migrations
+- Add seed data generator
+- Add synthetic clinic data
+- Add database tests
+
+### Phase 3 — Authentication and authorization
+
+- Implement OAuth providers
+- Implement secure sessions
+- Implement role and clinic authorization
+- Implement CSRF
+- Add auth tests
+- Add permission-denial tests
+
+### Phase 4 — Appointment workflows
+
+- Implement doctors and availability
+- Implement booking
+- Implement rescheduling
+- Implement cancellation
+- Add transactions
+- Add idempotency
+- Test concurrent booking
+
+### Phase 5 — Assistant
+
+- Implement deterministic assistant
+- Implement action proposals
+- Implement explicit confirmation
+- Implement revalidation
+- Add audit events
+- Add replay and authorization tests
+
+### Phase 6 — Documents and retrieval
+
+- Implement safe upload
+- Implement extraction
+- Implement chunking
+- Implement lexical retrieval
+- Implement citation response
+- Implement deletion cleanup
+- Add authorization-isolation tests
+
+### Phase 7 — Analytics foundation
+
+- Add aggregate analytics endpoints
+- Add metric definitions
+- Add CSV/JSON exports
+- Add scoped filters
+- Add server-side authorization
+
+### Phase 8 — Chronos-Bolt Small
+
+- Add synthetic time-series generator
+- Add baseline forecaster
+- Install pinned Chronos dependencies
+- Implement Chronos adapter
+- Implement background forecast jobs
+- Persist forecast runs
+- Implement rolling-window evaluation
+- Calculate MAE and interval metrics
+- Add stale/error/fallback states
+- Add model provenance
+- Add CPU/memory/runtime limits
+- Add reproducibility test
+
+### Phase 9 — Terra Insights integration
+
+- Replace static-only forecast section with API-backed data
+- Add loading skeleton
+- Add stale result state
+- Add error/retry state
+- Add forecast chart
+- Add baseline comparison
+- Add model metadata
+- Add evaluation panel
+- Add accessible table alternative
+- Preserve synthetic-data warning
+
+### Phase 10 — OCI deployment
+
+- Provision only approved OCI resources
+- Configure VCN and firewall
+- Configure reverse proxy
+- Configure HTTPS
+- Configure secrets
+- Configure persistent storage
+- Deploy backend and worker
+- Run migrations
+- Verify model inference
+- Verify backups and restore
+- Verify no public internal ports
+
+### Phase 11 — Testing and handoff
+
+- Unit tests
+- API tests
+- Database tests
+- Authentication tests
+- Authorization tests
+- Booking concurrency tests
+- Assistant proposal tests
+- Retrieval-isolation tests
+- Forecast reproducibility tests
+- Chronos-vs-baseline evaluation
+- Frontend interaction tests
+- Accessibility checks
+- Security audit
+- Deployment smoke tests
+- Update architecture documentation
+- Prepare instructor demonstration script
+
+## Required deliverables
+
+Create or update:
+
+- Backend source
+- Terra frontend integration
+- Database migrations
+- Synthetic-data generator
+- Chronos adapter
+- Baseline and evaluation code
+- Tests
+- `.env.example`
+- API documentation
+- Architecture document
+- Security/threat-model document
+- OCI deployment guide
+- Model evaluation report
+- Instructor-friendly project summary
+- Updated frontend README
+- Final TODO checklist
+
+## Working rules
+
+- Inspect before editing.
+- Make the smallest complete change.
+- Preserve existing user work.
+- Do not delete unrelated files.
+- Do not invent test results.
+- Do not say a feature is complete until it runs and has verification evidence.
+- Keep synthetic data clearly separated from real clinical data.
+- Run tests after each meaningful phase.
+- Report blockers precisely.
+- Use absolute file paths in the final response.
+- At the end of each task, summarize:
+  - What changed
+  - Files changed
+  - Tests run
+  - What remains
+  - Exact next step
+
+Start now with Phase 0. Inspect the repository and produce a concise implementation-status report before writing code.

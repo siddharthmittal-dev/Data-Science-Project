@@ -1,0 +1,35 @@
+# Local tooling and dependency caches
+.tools/
+.wrangler/
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+.dev.vars*
+
+# Local databases, uploads, model weights, logs, and generated artifacts
+*.db
+*.sqlite
+*.sqlite3
+uploads/
+model-cache/
+models/
+logs/
+dist/
+build/
+coverage/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
