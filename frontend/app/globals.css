@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+/* Terra palette from docs/archive/static-frontend/styles.css. Light only. */
+:root {
+  --bg: #f7f2e9;
+  --panel: #fffdf8;
+  --ink: #473728;
+  --muted: #796959;
+  --line: #e4dbcc;
+  --accent: #a34e35;
+  --soft: #f1e3d5;
+  --on: #fff9ef;
+  --danger: #a33e39;
+  --amber: #89612d;
+  --amber-soft: #f8eedc;
+  --art: #dfe2cf;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-panel: var(--panel);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-soft: var(--soft);
+  --color-on: var(--on);
+  --color-danger: var(--danger);
+  --color-amber: var(--amber);
+  --color-amber-soft: var(--amber-soft);
+  --color-art: var(--art);
+  --font-sans: var(--font-dm-sans), system-ui, sans-serif;
+  --font-serif: Georgia, "Times New Roman", serif;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.care-art canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}

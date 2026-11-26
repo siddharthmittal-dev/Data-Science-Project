@@ -1,0 +1,20 @@
+{"question": "When does reception open on Saturday?", "source": "clinic-hours.pdf", "page": 1, "evidence": "09:00", "answerable": true}
+{"question": "Can I start a Saturday appointment at one?", "source": "clinic-hours.pdf", "page": 1, "evidence": "The final Saturday slot starts at 12:30.", "answerable": true}
+{"question": "How early should a new visitor arrive?", "source": "first-visit.pdf", "page": 1, "evidence": "10 minutes", "answerable": true}
+{"question": "What identification is requested at check-in?", "source": "first-visit.pdf", "page": 1, "evidence": "photo ID", "answerable": true}
+{"question": "Can I move my visit to another time with my clinician?", "source": "change-a-booking.pdf", "page": 1, "evidence": "Choose a free slot with the same doctor", "answerable": true}
+{"question": "Where do I look for another specialty?", "source": "change-a-booking.pdf", "page": 1, "evidence": "Find a doctor", "answerable": true}
+{"question": "What is the free cancellation window?", "source": "cancellation.pdf", "page": 1, "evidence": "24 hours", "answerable": true}
+{"question": "Who should I call for a late cancellation?", "source": "cancellation.pdf", "page": 1, "evidence": "front desk", "answerable": true}
+{"question": "Is there a time restriction for roadside parking?", "source": "getting-here.pdf", "page": 1, "evidence": "two hours", "answerable": true}
+{"question": "Which doorway has step-free access?", "source": "getting-here.pdf", "page": 1, "evidence": "side entrance", "answerable": true}
+{"question": "Where do I check in for physiotherapy?", "source": "floor-directory.pdf", "page": 1, "evidence": "room B214", "answerable": true}
+{"question": "Which room has the sample collection desk?", "source": "floor-directory.pdf", "page": 1, "evidence": "room G012", "answerable": true}
+{"question": "How long does an account session last?", "source": "privacy-and-access.pdf", "page": 1, "evidence": "8 hours", "answerable": true}
+{"question": "How do I inspect the evidence for a document answer?", "source": "privacy-and-access.pdf", "page": 1, "evidence": "Select a source citation", "answerable": true}
+{"question": "How much calendar time does one visit take?", "source": "booking-a-visit.pdf", "page": 1, "evidence": "30 minutes", "answerable": true}
+{"question": "What should I review before confirming a suggested booking?", "source": "booking-a-visit.pdf", "page": 1, "evidence": "patient, clinician and time", "answerable": true}
+{"question": "What is the price of an MRI?", "source": null, "page": null, "evidence": null, "answerable": false}
+{"question": "What is the clinic Wi-Fi password?", "source": null, "page": null, "evidence": null, "answerable": false}
+{"question": "Does the car park have an EV charger?", "source": null, "page": null, "evidence": null, "answerable": false}
+{"question": "Which bus route stops at Terra Lane?", "source": null, "page": null, "evidence": null, "answerable": false}

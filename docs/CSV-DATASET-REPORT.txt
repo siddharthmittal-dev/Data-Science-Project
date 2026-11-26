@@ -1,0 +1,102 @@
+CSV validation and model backtest report
+26 November update: approximate coefficient, mean and outcome intervals added using
+the existing input CSVs. Method: weekday-aligned seven-day residual block bootstrap,
+400 draws, seed 42, 2.5/97.5 percentiles. Predictions are capacity-bounded. Nominal
+95% coverage is not a validated future accuracy guarantee. Completed-visit monthly
+range 39.1194-62.1772; no-show monthly range 3.3121-12.3207. Previous point predictions
+and scores are unchanged. The dated description below preserves the earlier stage.
+25 November 2026
+
+Expanded calculation report
+Admin Insights now displays November daily regression/baseline/capacity graphs,
+October observed/predicted graphs, residuals, predicted-versus-observed scatter,
+MAE, RMSE and R-squared for validation and holdout. The coefficient table includes
+an interactive date selector with each feature value, beta coefficient, beta*x
+contribution, intercept, raw prediction and capacity-constrained prediction.
+The final regressions each have design matrix rank 10 of 10 columns. The full
+OLS equation, training windows and monthly summation are explained in the page.
+Individual no-show classification includes ROC/AUC, precision-recall/AP,
+calibration, confusion matrix at 0.5, scaling statistics and fitted coefficients.
+Equation reconstruction and daily sums were checked numerically. ROC integration,
+confusion totals and calibration counts were checked against the saved metrics.
+Frontend lint, type checks and production build passed. Edge Guest displayed the
+November regression graph and October ROC. Prediction intervals and coefficient
+confidence intervals have not been estimated.
+
+Delivered source folder
+C:\Users\Asus\Desktop\PROJECTS\New folder
+
+The folder contains appointments.csv and clinic_calendar.csv. The replacement
+RAG PDFs and their patient ownership mapping have not been delivered here.
+
+Validation passed for 376 appointments and 122 distinct patients. The six
+observed months are May through October 2026. Calendar capacity extends through
+November 2026, with 214 daily rows. Monthly patient counts are 49, 52, 48, 51,
+50 and 53. Checks cover duplicate IDs/dates, IST timestamps, booking and outcome
+ordering, cancellation/reminder ordering, doctor specialty consistency,
+overlapping active doctor appointments, opening hours, calendar continuity,
+capacity and supported categories. Source CSVs were read directly.
+
+Forecast definitions
+Busyness means completed visits per calendar day. No-show volume means missed
+non-cancelled visits per day. These match the definitions in the agreed dataset
+plan. Predictions are constrained to non-negative published daily capacity.
+Individual no-show features use the information available at booking time.
+Cancelled appointments are excluded from individual no-show outcomes.
+
+Evaluation protocol
+May-August fits are assessed on September for model selection. October is the
+holdout month, after refitting on earlier observed data. Daily count forecasts
+freeze the available history at the beginning of the target month. Individual
+models train only on outcomes recorded before the target month and calculate
+each appointment's features from events recorded before its booking time.
+Model selection uses September results. October results do not select the model.
+
+Busyness linear regression
+October predicted total 58.53 completed visits, actual 58.
+October daily MAE 0.7257, weekday-baseline daily MAE 1.0968.
+November estimated total 51.07 completed visits.
+
+No-show count linear regression
+October predicted total 8.54, actual 4.
+October daily MAE 0.3227, weekday-baseline daily MAE 0.3065.
+November estimated total 6.02 no-shows.
+Linear regression won September validation but underperformed its baseline
+on October holdout. This limitation is displayed in admin Insights.
+
+Individual no-show logistic regression
+October contains 62 non-cancelled appointments, including 4 no-shows.
+October Brier score 0.0657, historical-rate baseline 0.0634.
+October ROC AUC 0.4267. The model won September validation and underperformed
+the baseline in October. Individual predictions require further validation.
+
+Retention
+The requested target remains another completed visit within 90 days.
+Monthly cutoffs in June, July and August have complete 90-day follow-up.
+September and October cutoffs are censored, with return labels left unknown.
+Allowing an independent 90-day holdout leaves a latest training cutoff of
+5 May 2026, when only 2 patients have prior completed visits. This supplies
+too little training evidence for a meaningful independent retention backtest.
+Additional earlier history or subsequent follow-up is required.
+
+Implementation and verification
+backend/app/check_clinic_csv.py validates the inputs and generates the report.
+backend/data/clinic-csv-evaluation.json contains input hashes and model results.
+The admin-only GET /api/insights/csv-evaluation serves the report.
+Admin Insights includes the supplied-data evaluation panel. Live API checks
+returned 200 for admin and 403 for patient and receptionist.
+Lint, frontend type checking and production build passed. In-memory rejection
+checks confirmed invalid IDs, end times and outcomes are rejected.
+The existing synthetic patient PDF was uploaded through the live API, its original
+bytes were retrieved, and OpenAI returned a cited RAG answer for that upload.
+The Edge Guest file-picker submission succeeded on retry. Processing and ready
+feedback appeared. Admin and receptionist selected-patient views had no upload
+button. The delivered CSV evaluation table was verified in admin Insights.
+
+Reproduce from repository root
+.venv\Scripts\python.exe -B -m backend.app.check_clinic_csv "C:\Users\Asus\Desktop\PROJECTS\New folder" --output backend/data/clinic-csv-evaluation.json
+
+Next work
+Receive replacement RAG PDFs with patient ownership mapping, validate extraction
+and citations, then replace the designated patient demo records.
+Receive enough additional history/follow-up to backtest 90-day retention.

@@ -1,0 +1,3547 @@
+{
+  "source": "User-supplied generated appointment history",
+  "schema_version": 1,
+  "dataset_sha256": {
+    "appointments.csv": "2f0b078f027f3eb129d269141510ea48ad0d54839f33cb415c7ffac81a1cb680",
+    "clinic_calendar.csv": "0524e7351d29719daa62a6cd00652a3ee1baa357c0a1fcef9611ef671ef285ee"
+  },
+  "validation": {
+    "status": "passed",
+    "appointments": 376,
+    "patients": 122,
+    "months": {
+      "2026-05": {
+        "patients": 49,
+        "outcomes": {
+          "completed": 45,
+          "no_show": 8,
+          "cancelled": 8
+        }
+      },
+      "2026-06": {
+        "patients": 52,
+        "outcomes": {
+          "completed": 56,
+          "no_show": 3,
+          "cancelled": 7
+        }
+      },
+      "2026-07": {
+        "patients": 48,
+        "outcomes": {
+          "completed": 43,
+          "cancelled": 9,
+          "no_show": 6
+        }
+      },
+      "2026-08": {
+        "patients": 51,
+        "outcomes": {
+          "completed": 51,
+          "no_show": 8,
+          "cancelled": 4
+        }
+      },
+      "2026-09": {
+        "patients": 50,
+        "outcomes": {
+          "completed": 54,
+          "no_show": 9,
+          "cancelled": 3
+        }
+      },
+      "2026-10": {
+        "patients": 53,
+        "outcomes": {
+          "completed": 58,
+          "no_show": 4
+        }
+      }
+    }
+  },
+  "busyness": {
+    "target": "completed",
+    "selected_method": "linear_regression",
+    "validation_month": "2026-09",
+    "holdout_month": "2026-10",
+    "metrics": {
+      "validation": {
+        "linear_regression": {
+          "daily_mae": 0.8144,
+          "rmse": 1.0559669027176113,
+          "r2": 0.5137793170196112,
+          "predicted_total": 49.1,
+          "actual_total": 54
+        },
+        "weekday_baseline": {
+          "daily_mae": 0.9167,
+          "rmse": 1.2041594578792296,
+          "r2": 0.367732558139535,
+          "predicted_total": 51.0,
+          "actual_total": 54
+        }
+      },
+      "holdout": {
+        "linear_regression": {
+          "daily_mae": 0.7257,
+          "rmse": 0.8971336194378113,
+          "r2": 0.6069818950143853,
+          "predicted_total": 58.53,
+          "actual_total": 58
+        },
+        "weekday_baseline": {
+          "daily_mae": 1.0968,
+          "rmse": 1.3060035073805594,
+          "r2": 0.16711128048780488,
+          "predicted_total": 54.0,
+          "actual_total": 58
+        }
+      }
+    },
+    "forecast_month": "2026-11",
+    "forecast_total": 51.07,
+    "evaluation_points": {
+      "validation": [
+        {
+          "day": "2026-09-01",
+          "actual": 2,
+          "linear_regression": 2.3826816633796346,
+          "weekday_baseline": 1.75
+        },
+        {
+          "day": "2026-09-02",
+          "actual": 3,
+          "linear_regression": 2.0816236356059283,
+          "weekday_baseline": 2.5
+        },
+        {
+          "day": "2026-09-03",
+          "actual": 3,
+          "linear_regression": 2.9438704998377894,
+          "weekday_baseline": 3.0
+        },
+        {
+          "day": "2026-09-04",
+          "actual": 1,
+          "linear_regression": 1.977719301248077,
+          "weekday_baseline": 1.75
+        },
+        {
+          "day": "2026-09-05",
+          "actual": 0,
+          "linear_regression": 0.8387973766346464,
+          "weekday_baseline": 1.0
+        },
+        {
+          "day": "2026-09-06",
+          "actual": 0,
+          "linear_regression": 0.0,
+          "weekday_baseline": 0.0
+        },
+        {
+          "day": "2026-09-07",
+          "actual": 1,
+          "linear_regression": 1.485758416474773,
+          "weekday_baseline": 2.25
+        },
+        {
+          "day": "2026-09-08",
+          "actual": 4,
+          "linear_regression": 2.7989375042153704,
+          "weekday_baseline": 1.75
+        },
+        {
+          "day": "2026-09-09",
+          "actual": 3,
+          "linear_regression": 1.688168291129224,
+          "weekday_baseline": 2.5
+        },
+        {
+          "day": "2026-09-10",
+          "actual": 1,
+          "linear_regression": 2.550415155361085,
+          "weekday_baseline": 3.0
+        },
+        {
+          "day": "2026-09-11",
+          "actual": 2,
+          "linear_regression": 1.9891195494275926,
+          "weekday_baseline": 1.75
+        },
+        {
+          "day": "2026-09-12",
+          "actual": 0,
+          "linear_regression": 0.8501976248141621,
+          "weekday_baseline": 1.0
+        },
+        {
+          "day": "2026-09-13",
+          "actual": 0,
+          "linear_regression": 0.0,
+          "weekday_baseline": 0.0
+        },
+        {
+          "day": "2026-09-14",
+          "actual": 0,
+          "linear_regression": 0.0,
+          "weekday_baseline": 0.0
+        },
+        {
+          "day": "2026-09-15",
+          "actual": 3,
+          "linear_regression": 2.405482159738666,
+          "weekday_baseline": 1.75
+        },
+        {
+          "day": "2026-09-16",
+          "actual": 1,
+          "linear_regression": 1.6995685393087396,
+          "weekday_baseline": 2.5
+        },
+        {
+          "day": "2026-09-17",
+          "actual": 3,
+          "linear_regression": 2.9666709961968207,
+          "weekday_baseline": 3.0
+        },
+        {
+          "day": "2026-09-18",
+          "actual": 1,
+          "linear_regression": 2.000519797607108,
+          "weekday_baseline": 1.75
+        },
+        {
+          "day": "2026-09-19",
+          "actual": 0,
+          "linear_regression": 1.2664534656498978,
+          "weekday_baseline": 1.0
+        },
+        {
+          "day": "2026-09-20",
+          "actual": 0,
+          "linear_regression": 0.0,
+          "weekday_baseline": 0.0
+        },
+        {
+          "day": "2026-09-21",
+          "actual": 3,
+          "linear_regression": 1.1037033201775843,
+          "weekday_baseline": 2.25
+        },
+        {
+          "day": "2026-09-22",
+          "actual": 4,
+          "linear_regression": 2.416882407918182,
+          "weekday_baseline": 1.75
+        },
+        {
+          "day": "2026-09-23",
+          "actual": 1,
+          "linear_regression": 1.7109687874882553,
+          "weekday_baseline": 2.5
+        },
+        {
+          "day": "2026-09-24",
+          "actual": 4,
+          "linear_regression": 2.978071244376336,
+          "weekday_baseline": 3.0
+        },
+        {
+          "day": "2026-09-25",
+          "actual": 4,
+          "linear_regression": 2.011920045786624,
+          "weekday_baseline": 1.75
+        },
+        {
+          "day": "2026-09-26",
+          "actual": 1,
+          "linear_regression": 1.2778537138294135,
+          "weekday_baseline": 1.0
+        },
+        {
+          "day": "2026-09-27",
+          "actual": 0,
+          "linear_regression": 0.0,
+          "weekday_baseline": 0.0
+        },
+        {
+          "day": "2026-09-28",
+          "actual": 4,
+          "linear_regression": 1.51995916101332,
+          "weekday_baseline": 2.25
+        },
+        {
+          "day": "2026-09-29",
+          "actual": 4,
+          "linear_regression": 2.4282826560976973,
+          "weekday_baseline": 1.75
+        },
+        {
+          "day": "2026-09-30",
+          "actual": 1,
+          "linear_regression": 1.722369035667771,
+          "weekday_baseline": 2.5
+        }
+      ],
+      "holdout": [
+        {
+          "day": "2026-10-01",
+          "actual": 4,
+          "linear_regression": 3.511709181949201,
+          "weekday_baseline": 2.75
+        },
+        {
+          "day": "2026-10-02",
+          "actual": 1,
+          "linear_regression": 1.6763763018922615,
+          "weekday_baseline": 2.0
+        },
+        {
+          "day": "2026-10-03",
+          "actual": 1,
+          "linear_regression": 1.302948896718639,
+          "weekday_baseline": 0.25
+        },
+        {
+          "day": "2026-10-04",
+          "actual": 0,
+          "linear_regression": 0.0,
+          "weekday_baseline": 0.0
+        },
+        {
+          "day": "2026-10-05",
+          "actual": 3,
+          "linear_regression": 1.8459441808894335,
+          "weekday_baseline": 2.0
+        },
+        {
+          "day": "2026-10-06",
+          "actual": 1,
+          "linear_regression": 2.621999323007992,
+          "weekday_baseline": 3.75
+        },
+        {
+          "day": "2026-10-07",
+          "actual": 2,
+          "linear_regression": 1.9105801558359805,
+          "weekday_baseline": 1.5
+        },
+        {
+          "day": "2026-10-08",
+          "actual": 5,
+          "linear_regression": 3.532256874018863,
+          "weekday_baseline": 2.75
+        },
+        {
+          "day": "2026-10-09",
+          "actual": 3,
+          "linear_regression": 2.5534303483948992,
+          "weekday_baseline": 2.0
+        },
+        {
+          "day": "2026-10-10",
+          "actual": 1,
+          "linear_regression": 0.8952434115718131,
+          "weekday_baseline": 0.25
+        },
+        {
+          "day": "2026-10-11",
+          "actual": 0,
+          "linear_regression": 0.0,
+          "weekday_baseline": 0.0
+        },
+        {
+          "day": "2026-10-12",
+          "actual": 0,
+          "linear_regression": 1.8664918729590956,
+          "weekday_baseline": 2.0
+        },
+        {
+          "day": "2026-10-13",
+          "actual": 2,
+          "linear_regression": 2.6425470150776538,
+          "weekday_baseline": 3.75
+        },
+        {
+          "day": "2026-10-14",
+          "actual": 2,
+          "linear_regression": 1.5028746706891547,
+          "weekday_baseline": 1.5
+        },
+        {
+          "day": "2026-10-15",
+          "actual": 1,
+          "linear_regression": 2.6962982116555496,
+          "weekday_baseline": 2.75
+        },
+        {
+          "day": "2026-10-16",
+          "actual": 1,
+          "linear_regression": 2.145724863248073,
+          "weekday_baseline": 2.0
+        },
+        {
+          "day": "2026-10-17",
+          "actual": 2,
+          "linear_regression": 1.344044280857963,
+          "weekday_baseline": 0.25
+        },
+        {
+          "day": "2026-10-18",
+          "actual": 0,
+          "linear_regression": 0.0,
+          "weekday_baseline": 0.0
+        },
+        {
+          "day": "2026-10-19",
+          "actual": 1,
+          "linear_regression": 1.4587863878122698,
+          "weekday_baseline": 2.0
+        },
+        {
+          "day": "2026-10-20",
+          "actual": 2,
+          "linear_regression": 2.663094707147316,
+          "weekday_baseline": 3.75
+        },
+        {
+          "day": "2026-10-21",
+          "actual": 3,
+          "linear_regression": 2.3799287171917927,
+          "weekday_baseline": 1.5
+        },
+        {
+          "day": "2026-10-22",
+          "actual": 5,
+          "linear_regression": 3.5733522581581867,
+          "weekday_baseline": 2.75
+        },
+        {
+          "day": "2026-10-23",
+          "actual": 1,
+          "linear_regression": 2.166272555317735,
+          "weekday_baseline": 2.0
+        },
+        {
+          "day": "2026-10-24",
+          "actual": 1,
+          "linear_regression": 1.3645919729276248,
+          "weekday_baseline": 0.25
+        },
+        {
+          "day": "2026-10-25",
+          "actual": 0,
+          "linear_regression": 0.0,
+          "weekday_baseline": 0.0
+        },
+        {
+          "day": "2026-10-26",
+          "actual": 1,
+          "linear_regression": 1.9075872570984194,
+          "weekday_baseline": 2.0
+        },
+        {
+          "day": "2026-10-27",
+          "actual": 4,
+          "linear_regression": 2.683642399216978,
+          "weekday_baseline": 3.75
+        },
+        {
+          "day": "2026-10-28",
+          "actual": 2,
+          "linear_regression": 1.5439700548284787,
+          "weekday_baseline": 1.5
+        },
+        {
+          "day": "2026-10-29",
+          "actual": 4,
+          "linear_regression": 3.1656467730113613,
+          "weekday_baseline": 2.75
+        },
+        {
+          "day": "2026-10-30",
+          "actual": 3,
+          "linear_regression": 2.186820247387397,
+          "weekday_baseline": 2.0
+        },
+        {
+          "day": "2026-10-31",
+          "actual": 2,
+          "linear_regression": 1.385139664997287,
+          "weekday_baseline": 0.25
+        }
+      ]
+    },
+    "uncertainty": {
+      "level": 0.95,
+      "draws": 400,
+      "seed": 42,
+      "block_days": 7,
+      "method": "Weekday-aligned residual block bootstrap; fixed features; conditional on OLS and published capacity. Nominal 95% intervals are approximate, not coverage-validated.",
+      "coefficient_intervals": [
+        [
+          -0.5029051066488696,
+          -0.030555087620049694
+        ],
+        [
+          -1.7819821097332138,
+          0.618393259204532
+        ],
+        [
+          -0.9642918461402816,
+          1.8373086230950169
+        ],
+        [
+          -0.8203842683388269,
+          1.0112139939931524
+        ],
+        [
+          -0.30227613216470633,
+          2.40171032956583
+        ],
+        [
+          -0.8221674488489725,
+          1.3835842320502894
+        ],
+        [
+          -0.3089717551725031,
+          0.8100453687760765
+        ],
+        [
+          0.26529210234721357,
+          0.6814606879672366
+        ],
+        [
+          0.09939973144032128,
+          1.0389888197130657
+        ],
+        [
+          -0.40637903573605366,
+          0.11133199538800582
+        ]
+      ],
+      "mean_intervals": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.4885376465106996,
+          2.548719878743803
+        ],
+        [
+          1.6797813726981012,
+          2.9540079248145794
+        ],
+        [
+          1.020956268282639,
+          1.8900888336290083
+        ],
+        [
+          2.172180171803344,
+          3.2469430380091278
+        ],
+        [
+          1.6013281855397912,
+          2.670418009290865
+        ],
+        [
+          1.2561177112688533,
+          2.2726024613908873
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.8546324192941994,
+          3.0718969283861597
+        ],
+        [
+          2.2615574060279813,
+          3.4324899211948487
+        ],
+        [
+          1.9653500946882079,
+          2.9793854170929883
+        ],
+        [
+          2.72169230228625,
+          3.7037545253180384
+        ],
+        [
+          1.1197974292473152,
+          2.258247139575817
+        ],
+        [
+          1.272915613036794,
+          2.304059587226048
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.011399172139294,
+          2.130201859338917
+        ],
+        [
+          2.278630713652538,
+          3.4690857529469388
+        ],
+        [
+          1.5676673158775924,
+          2.449565251590219
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.612662187185215,
+          2.7397781318323347
+        ],
+        [
+          1.2894743501386023,
+          2.3414904030205315
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0236587084846807,
+          2.1624073473924295
+        ],
+        [
+          1.7316026551206463,
+          3.0319198259835045
+        ],
+        [
+          1.064643996459565,
+          1.9871017326579457
+        ],
+        [
+          2.7316111549868145,
+          3.7678606740957847
+        ],
+        [
+          1.1382503155104762,
+          2.3209434678920595
+        ],
+        [
+          0.9366111569127318,
+          1.7824181035512972
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.5224278189150982,
+          2.681112073744818
+        ]
+      ],
+      "prediction_intervals": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.26731576521634925,
+          4.057222913637261
+        ],
+        [
+          0.0,
+          4.0
+        ],
+        [
+          0.0,
+          2.8822843369826106
+        ],
+        [
+          0.6096266643985152,
+          4.0
+        ],
+        [
+          0.40663515593371596,
+          4.0
+        ],
+        [
+          0.40558959456319443,
+          3.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.6531174552753306,
+          4.7769450660046395
+        ],
+        [
+          0.5107987865797206,
+          5.0
+        ],
+        [
+          0.7217152883652791,
+          3.820666318790429
+        ],
+        [
+          1.0435181811084344,
+          4.824074899293512
+        ],
+        [
+          0.0,
+          3.0
+        ],
+        [
+          0.3650579182887449,
+          3.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          3.640879256390601
+        ],
+        [
+          0.5175555855411164,
+          5.0
+        ],
+        [
+          0.30900419840666893,
+          3.466513341250129
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.44718542445484993,
+          4.0
+        ],
+        [
+          0.4069989136324065,
+          3.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          3.6840844802979187
+        ],
+        [
+          0.24425758344220636,
+          4.0
+        ],
+        [
+          0.0,
+          2.8889184834383848
+        ],
+        [
+          1.2634848080498595,
+          4.88707481684855
+        ],
+        [
+          0.0,
+          3.0
+        ],
+        [
+          0.03856236374071343,
+          2.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.20454468263067924,
+          4.225215156275393
+        ]
+      ],
+      "monthly_prediction_interval": [
+        39.11939252037643,
+        62.17724664071789
+      ]
+    },
+    "model": {
+      "intercept": -0.28379688104473555,
+      "coefficients": [
+        -0.5678687836902265,
+        0.39715522648788815,
+        0.08809446299571771,
+        1.0224868270861587,
+        0.2038182790316133,
+        0.283231591445578,
+        0.48397896838053794,
+        0.5707646769614844,
+        -0.15767915114245087
+      ],
+      "features": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "published_capacity",
+        "days_since_start_divided_by_180",
+        "mean_last_four_matching_weekdays"
+      ],
+      "training_days": 184,
+      "training_start": "2026-05-01",
+      "training_end": "2026-10-31",
+      "design_rank": 10,
+      "design_columns": 10,
+      "training_rmse_raw": 1.0234825698287673
+    },
+    "points": [
+      {
+        "day": "2026-11-01",
+        "predicted": 0.0,
+        "regression": 0.0,
+        "baseline": 0.0,
+        "capacity": 0,
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          1.0222222222222221,
+          0.0
+        ],
+        "raw": 0.2996514554047818
+      },
+      {
+        "day": "2026-11-02",
+        "predicted": 1.9577494895611895,
+        "regression": 1.9577494895611895,
+        "baseline": 1.25,
+        "capacity": 5,
+        "features": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          5,
+          1.0277777777777777,
+          1.25
+        ],
+        "raw": 1.9577494895611895
+      },
+      {
+        "day": "2026-11-03",
+        "predicted": 2.284286295088324,
+        "regression": 2.284286295088324,
+        "baseline": 2.25,
+        "capacity": 4,
+        "features": [
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          4,
+          1.0333333333333334,
+          2.25
+        ],
+        "raw": 2.2842862950883234
+      },
+      {
+        "day": "2026-11-04",
+        "predicted": 1.4944174780876238,
+        "regression": 1.4944174780876238,
+        "baseline": 2.25,
+        "capacity": 3,
+        "features": [
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          3,
+          1.038888888888889,
+          2.25
+        ],
+        "raw": 1.4944174780876238
+      },
+      {
+        "day": "2026-11-05",
+        "predicted": 2.6794409987169345,
+        "regression": 2.6794409987169345,
+        "baseline": 3.75,
+        "capacity": 4,
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          4,
+          1.0444444444444445,
+          3.75
+        ],
+        "raw": 2.6794409987169345
+      },
+      {
+        "day": "2026-11-06",
+        "predicted": 2.1398818800336863,
+        "regression": 2.1398818800336863,
+        "baseline": 2.0,
+        "capacity": 4,
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          4,
+          1.05,
+          2.0
+        ],
+        "raw": 2.1398818800336863
+      },
+      {
+        "day": "2026-11-07",
+        "predicted": 1.8173267145103469,
+        "regression": 1.8173267145103469,
+        "baseline": 1.5,
+        "capacity": 3,
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          3,
+          1.0555555555555556,
+          1.5
+        ],
+        "raw": 1.8173267145103469
+      },
+      {
+        "day": "2026-11-08",
+        "predicted": 0.0,
+        "regression": 0.0,
+        "baseline": 0.0,
+        "capacity": 0,
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          1.0611111111111111,
+          0.0
+        ],
+        "raw": 0.32184785950883954
+      },
+      {
+        "day": "2026-11-09",
+        "predicted": 2.463924862045785,
+        "regression": 2.463924862045785,
+        "baseline": 1.25,
+        "capacity": 6,
+        "features": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          6,
+          1.0666666666666667,
+          1.25
+        ],
+        "raw": 2.463924862045785
+      },
+      {
+        "day": "2026-11-10",
+        "predicted": 2.790461667572919,
+        "regression": 2.790461667572919,
+        "baseline": 2.25,
+        "capacity": 5,
+        "features": [
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          5,
+          1.0722222222222222,
+          2.25
+        ],
+        "raw": 2.790461667572919
+      },
+      {
+        "day": "2026-11-11",
+        "predicted": 2.4845718189527566,
+        "regression": 2.4845718189527566,
+        "baseline": 2.25,
+        "capacity": 5,
+        "features": [
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          5,
+          1.0777777777777777,
+          2.25
+        ],
+        "raw": 2.4845718189527566
+      },
+      {
+        "day": "2026-11-12",
+        "predicted": 3.18561637120153,
+        "regression": 3.18561637120153,
+        "baseline": 3.75,
+        "capacity": 5,
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          5,
+          1.0833333333333333,
+          3.75
+        ],
+        "raw": 3.18561637120153
+      },
+      {
+        "day": "2026-11-13",
+        "predicted": 1.6780993157572057,
+        "regression": 1.6780993157572057,
+        "baseline": 2.0,
+        "capacity": 3,
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          3,
+          1.0888888888888888,
+          2.0
+        ],
+        "raw": 1.6780993157572057
+      },
+      {
+        "day": "2026-11-14",
+        "predicted": 1.8395231186144048,
+        "regression": 1.8395231186144048,
+        "baseline": 1.5,
+        "capacity": 3,
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          3,
+          1.0944444444444446,
+          1.5
+        ],
+        "raw": 1.8395231186144048
+      },
+      {
+        "day": "2026-11-15",
+        "predicted": 0.0,
+        "regression": 0.0,
+        "baseline": 0.0,
+        "capacity": 0,
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          1.1,
+          0.0
+        ],
+        "raw": 0.3440442636128973
+      },
+      {
+        "day": "2026-11-16",
+        "predicted": 1.5181633293887673,
+        "regression": 1.5181633293887673,
+        "baseline": 1.25,
+        "capacity": 4,
+        "features": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          4,
+          1.1055555555555556,
+          1.25
+        ],
+        "raw": 1.5181633293887673
+      },
+      {
+        "day": "2026-11-17",
+        "predicted": 2.8126580716769767,
+        "regression": 2.8126580716769767,
+        "baseline": 2.25,
+        "capacity": 5,
+        "features": [
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          5,
+          1.1111111111111112,
+          2.25
+        ],
+        "raw": 2.8126580716769767
+      },
+      {
+        "day": "2026-11-18",
+        "predicted": 2.022789254676277,
+        "regression": 2.022789254676277,
+        "baseline": 2.25,
+        "capacity": 4,
+        "features": [
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          4,
+          1.1166666666666667,
+          2.25
+        ],
+        "raw": 2.022789254676277
+      },
+      {
+        "day": "2026-11-19",
+        "predicted": 0.0,
+        "regression": 0.0,
+        "baseline": 0.0,
+        "capacity": 0,
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0,
+          1.1222222222222222,
+          3.75
+        ],
+        "raw": 0.7879179334028983
+      },
+      {
+        "day": "2026-11-20",
+        "predicted": 2.1842746882418016,
+        "regression": 2.1842746882418016,
+        "baseline": 2.0,
+        "capacity": 4,
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          4,
+          1.1277777777777778,
+          2.0
+        ],
+        "raw": 2.1842746882418016
+      },
+      {
+        "day": "2026-11-21",
+        "predicted": 1.8617195227184622,
+        "regression": 1.8617195227184622,
+        "baseline": 1.5,
+        "capacity": 3,
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          3,
+          1.1333333333333333,
+          1.5
+        ],
+        "raw": 1.8617195227184622
+      },
+      {
+        "day": "2026-11-22",
+        "predicted": 0.0,
+        "regression": 0.0,
+        "baseline": 0.0,
+        "capacity": 0,
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          1.1388888888888888,
+          0.0
+        ],
+        "raw": 0.36624066771695496
+      },
+      {
+        "day": "2026-11-23",
+        "predicted": 1.540359733492825,
+        "regression": 1.540359733492825,
+        "baseline": 1.25,
+        "capacity": 4,
+        "features": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          4,
+          1.1444444444444444,
+          1.25
+        ],
+        "raw": 1.540359733492825
+      },
+      {
+        "day": "2026-11-24",
+        "predicted": 2.3508755074004966,
+        "regression": 2.3508755074004966,
+        "baseline": 2.25,
+        "capacity": 4,
+        "features": [
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          4,
+          1.15,
+          2.25
+        ],
+        "raw": 2.3508755074004966
+      },
+      {
+        "day": "2026-11-25",
+        "predicted": 1.561006690399797,
+        "regression": 1.561006690399797,
+        "baseline": 2.25,
+        "capacity": 3,
+        "features": [
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          3,
+          1.1555555555555554,
+          2.25
+        ],
+        "raw": 1.5610066903997966
+      },
+      {
+        "day": "2026-11-26",
+        "predicted": 3.2300091794096457,
+        "regression": 3.2300091794096457,
+        "baseline": 3.75,
+        "capacity": 5,
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          5,
+          1.1611111111111112,
+          3.75
+        ],
+        "raw": 3.2300091794096457
+      },
+      {
+        "day": "2026-11-27",
+        "predicted": 1.7224921239653215,
+        "regression": 1.7224921239653215,
+        "baseline": 2.0,
+        "capacity": 3,
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          3,
+          1.1666666666666667,
+          2.0
+        ],
+        "raw": 1.7224921239653215
+      },
+      {
+        "day": "2026-11-28",
+        "predicted": 1.3999369584419818,
+        "regression": 1.3999369584419818,
+        "baseline": 1.5,
+        "capacity": 2,
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          2,
+          1.1722222222222223,
+          1.5
+        ],
+        "raw": 1.3999369584419818
+      },
+      {
+        "day": "2026-11-29",
+        "predicted": 0.0,
+        "regression": 0.0,
+        "baseline": 0.0,
+        "capacity": 0,
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          1.1777777777777778,
+          0.0
+        ],
+        "raw": 0.3884370718210127
+      },
+      {
+        "day": "2026-11-30",
+        "predicted": 2.04653510597742,
+        "regression": 2.04653510597742,
+        "baseline": 1.25,
+        "capacity": 5,
+        "features": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          5,
+          1.1833333333333333,
+          1.25
+        ],
+        "raw": 2.04653510597742
+      }
+    ]
+  },
+  "no_show_counts": {
+    "target": "no_show",
+    "selected_method": "linear_regression",
+    "validation_month": "2026-09",
+    "holdout_month": "2026-10",
+    "metrics": {
+      "validation": {
+        "linear_regression": {
+          "daily_mae": 0.3752,
+          "rmse": 0.6783770611025098,
+          "r2": 0.03455502720962589,
+          "predicted_total": 4.63,
+          "actual_total": 9
+        },
+        "weekday_baseline": {
+          "daily_mae": 0.4,
+          "rmse": 0.6454972243679028,
+          "r2": 0.12587412587412583,
+          "predicted_total": 8.0,
+          "actual_total": 9
+        }
+      },
+      "holdout": {
+        "linear_regression": {
+          "daily_mae": 0.3227,
+          "rmse": 0.44349691429344235,
+          "r2": -0.11187424694870907,
+          "predicted_total": 8.54,
+          "actual_total": 4
+        },
+        "weekday_baseline": {
+          "daily_mae": 0.3065,
+          "rmse": 0.4836020758246758,
+          "r2": -0.32205882352941195,
+          "predicted_total": 8.5,
+          "actual_total": 4
+        }
+      }
+    },
+    "forecast_month": "2026-11",
+    "forecast_total": 6.02,
+    "evaluation_points": {
+      "validation": [
+        {
+          "day": "2026-09-01",
+          "actual": 1,
+          "linear_regression": 0.0726879736781294,
+          "weekday_baseline": 0.5
+        },
+        {
+          "day": "2026-09-02",
+          "actual": 0,
+          "linear_regression": 0.38536299752108905,
+          "weekday_baseline": 0.0
+        },
+        {
+          "day": "2026-09-03",
+          "actual": 0,
+          "linear_regression": 0.2991534546094496,
+          "weekday_baseline": 0.25
+        },
+        {
+          "day": "2026-09-04",
+          "actual": 0,
+          "linear_regression": 0.14134117050659156,
+          "weekday_baseline": 0.5
+        },
+        {
+          "day": "2026-09-05",
+          "actual": 0,
+          "linear_regression": 0.0,
+          "weekday_baseline": 0.25
+        },
+        {
+          "day": "2026-09-06",
+          "actual": 0,
+          "linear_regression": 0.0,
+          "weekday_baseline": 0.0
+        },
+        {
+          "day": "2026-09-07",
+          "actual": 3,
+          "linear_regression": 0.44369327778980827,
+          "weekday_baseline": 0.5
+        },
+        {
+          "day": "2026-09-08",
+          "actual": 1,
+          "linear_regression": 0.25146852747336035,
+          "weekday_baseline": 0.5
+        },
+        {
+          "day": "2026-09-09",
+          "actual": 0,
+          "linear_regression": 0.20672104810817712,
+          "weekday_baseline": 0.0
+        },
+        {
+          "day": "2026-09-10",
+          "actual": 0,
+          "linear_regression": 0.1205115051965377,
+          "weekday_baseline": 0.25
+        },
+        {
+          "day": "2026-09-11",
+          "actual": 0,
+          "linear_regression": 0.1414104726977511,
+          "weekday_baseline": 0.5
+        },
+        {
+          "day": "2026-09-12",
+          "actual": 0,
+          "linear_regression": 0.0,
+          "weekday_baseline": 0.25
+        },
+        {
+          "day": "2026-09-13",
+          "actual": 0,
+          "linear_regression": 0.0,
+          "weekday_baseline": 0.0
+        },
+        {
+          "day": "2026-09-14",
+          "actual": 0,
+          "linear_regression": 0.0,
+          "weekday_baseline": 0.0
+        },
+        {
+          "day": "2026-09-15",
+          "actual": 0,
+          "linear_regression": 0.07282657806044845,
+          "weekday_baseline": 0.5
+        },
+        {
+          "day": "2026-09-16",
+          "actual": 1,
+          "linear_regression": 0.20679035029933665,
+          "weekday_baseline": 0.0
+        },
+        {
+          "day": "2026-09-17",
+          "actual": 0,
+          "linear_regression": 0.29929205899176864,
+          "weekday_baseline": 0.25
+        },
+        {
+          "day": "2026-09-18",
+          "actual": 2,
+          "linear_regression": 0.14147977488891061,
+          "weekday_baseline": 0.5
+        },
+        {
+          "day": "2026-09-19",
+          "actual": 0,
+          "linear_regression": 0.0710931402328765,
+          "weekday_baseline": 0.25
+        },
+        {
+          "day": "2026-09-20",
+          "actual": 0,
+          "linear_regression": 0.0,
+          "weekday_baseline": 0.0
+        },
+        {
+          "day": "2026-09-21",
+          "actual": 0,
+          "linear_regression": 0.2651206305680558,
+          "weekday_baseline": 0.5
+        },
+        {
+          "day": "2026-09-22",
+          "actual": 1,
+          "linear_regression": 0.07289588025160798,
+          "weekday_baseline": 0.5
+        },
+        {
+          "day": "2026-09-23",
+          "actual": 0,
+          "linear_regression": 0.20685965249049615,
+          "weekday_baseline": 0.0
+        },
+        {
+          "day": "2026-09-24",
+          "actual": 0,
+          "linear_regression": 0.29936136118292817,
+          "weekday_baseline": 0.25
+        },
+        {
+          "day": "2026-09-25",
+          "actual": 0,
+          "linear_regression": 0.14154907708007008,
+          "weekday_baseline": 0.5
+        },
+        {
+          "day": "2026-09-26",
+          "actual": 0,
+          "linear_regression": 0.07116244242403602,
+          "weekday_baseline": 0.25
+        },
+        {
+          "day": "2026-09-27",
+          "actual": 0,
+          "linear_regression": 0.0,
+          "weekday_baseline": 0.0
+        },
+        {
+          "day": "2026-09-28",
+          "actual": 0,
+          "linear_regression": 0.44390118436328674,
+          "weekday_baseline": 0.5
+        },
+        {
+          "day": "2026-09-29",
+          "actual": 0,
+          "linear_regression": 0.0729651824427675,
+          "weekday_baseline": 0.5
+        },
+        {
+          "day": "2026-09-30",
+          "actual": 0,
+          "linear_regression": 0.20692895468165567,
+          "weekday_baseline": 0.0
+        }
+      ],
+      "holdout": [
+        {
+          "day": "2026-10-01",
+          "actual": 0,
+          "linear_regression": 0.5205398417178149,
+          "weekday_baseline": 0.0
+        },
+        {
+          "day": "2026-10-02",
+          "actual": 0,
+          "linear_regression": 0.1279632884098144,
+          "weekday_baseline": 0.5
+        },
+        {
+          "day": "2026-10-03",
+          "actual": 0,
+          "linear_regression": 0.20029850671997101,
+          "weekday_baseline": 0.0
+        },
+        {
+          "day": "2026-10-04",
+          "actual": 0,
+          "linear_regression": 0.0,
+          "weekday_baseline": 0.0
+        },
+        {
+          "day": "2026-10-05",
+          "actual": 0,
+          "linear_regression": 0.5620022097580786,
+          "weekday_baseline": 0.75
+        },
+        {
+          "day": "2026-10-06",
+          "actual": 0,
+          "linear_regression": 0.27966284392372714,
+          "weekday_baseline": 0.5
+        },
+        {
+          "day": "2026-10-07",
+          "actual": 0,
+          "linear_regression": 0.20230303628612756,
+          "weekday_baseline": 0.25
+        },
+        {
+          "day": "2026-10-08",
+          "actual": 0,
+          "linear_regression": 0.5263695202730325,
+          "weekday_baseline": 0.0
+        },
+        {
+          "day": "2026-10-09",
+          "actual": 0,
+          "linear_regression": 0.4569096337600142,
+          "weekday_baseline": 0.5
+        },
+        {
+          "day": "2026-10-10",
+          "actual": 0,
+          "linear_regression": 0.04456985187769766,
+          "weekday_baseline": 0.0
+        },
+        {
+          "day": "2026-10-11",
+          "actual": 0,
+          "linear_regression": 0.0,
+          "weekday_baseline": 0.0
+        },
+        {
+          "day": "2026-10-12",
+          "actual": 0,
+          "linear_regression": 0.5678318883132962,
+          "weekday_baseline": 0.75
+        },
+        {
+          "day": "2026-10-13",
+          "actual": 0,
+          "linear_regression": 0.2854925224789448,
+          "weekday_baseline": 0.5
+        },
+        {
+          "day": "2026-10-14",
+          "actual": 0,
+          "linear_regression": 0.04657438144385423,
+          "weekday_baseline": 0.25
+        },
+        {
+          "day": "2026-10-15",
+          "actual": 0,
+          "linear_regression": 0.2090825320332681,
+          "weekday_baseline": 0.0
+        },
+        {
+          "day": "2026-10-16",
+          "actual": 0,
+          "linear_regression": 0.3011809789177408,
+          "weekday_baseline": 0.5
+        },
+        {
+          "day": "2026-10-17",
+          "actual": 0,
+          "linear_regression": 0.21195786383040638,
+          "weekday_baseline": 0.0
+        },
+        {
+          "day": "2026-10-18",
+          "actual": 0,
+          "linear_regression": 0.0,
+          "weekday_baseline": 0.0
+        },
+        {
+          "day": "2026-10-19",
+          "actual": 0,
+          "linear_regression": 0.41210323347102273,
+          "weekday_baseline": 0.75
+        },
+        {
+          "day": "2026-10-20",
+          "actual": 0,
+          "linear_regression": 0.2913222010341625,
+          "weekday_baseline": 0.5
+        },
+        {
+          "day": "2026-10-21",
+          "actual": 2,
+          "linear_regression": 0.375520726794054,
+          "weekday_baseline": 0.25
+        },
+        {
+          "day": "2026-10-22",
+          "actual": 0,
+          "linear_regression": 0.5380288773834678,
+          "weekday_baseline": 0.0
+        },
+        {
+          "day": "2026-10-23",
+          "actual": 0,
+          "linear_regression": 0.3070106574729585,
+          "weekday_baseline": 0.5
+        },
+        {
+          "day": "2026-10-24",
+          "actual": 0,
+          "linear_regression": 0.2177875423856241,
+          "weekday_baseline": 0.0
+        },
+        {
+          "day": "2026-10-25",
+          "actual": 0,
+          "linear_regression": 0.0,
+          "weekday_baseline": 0.0
+        },
+        {
+          "day": "2026-10-26",
+          "actual": 1,
+          "linear_regression": 0.5794912454237315,
+          "weekday_baseline": 0.75
+        },
+        {
+          "day": "2026-10-27",
+          "actual": 0,
+          "linear_regression": 0.2971518795893802,
+          "weekday_baseline": 0.5
+        },
+        {
+          "day": "2026-10-28",
+          "actual": 0,
+          "linear_regression": 0.058233738554289594,
+          "weekday_baseline": 0.25
+        },
+        {
+          "day": "2026-10-29",
+          "actual": 0,
+          "linear_regression": 0.3823002225411945,
+          "weekday_baseline": 0.0
+        },
+        {
+          "day": "2026-10-30",
+          "actual": 1,
+          "linear_regression": 0.31284033602817624,
+          "weekday_baseline": 0.5
+        },
+        {
+          "day": "2026-10-31",
+          "actual": 0,
+          "linear_regression": 0.22361722094084174,
+          "weekday_baseline": 0.0
+        }
+      ]
+    },
+    "uncertainty": {
+      "level": 0.95,
+      "draws": 400,
+      "seed": 42,
+      "block_days": 7,
+      "method": "Weekday-aligned residual block bootstrap; fixed features; conditional on OLS and published capacity. Nominal 95% intervals are approximate, not coverage-validated.",
+      "coefficient_intervals": [
+        [
+          -0.1014197502861569,
+          0.10169179694264911
+        ],
+        [
+          -0.7603603559255201,
+          0.3298823877120607
+        ],
+        [
+          -1.0943115730402455,
+          -0.008367666248624847
+        ],
+        [
+          -0.8284866731606229,
+          0.0003972539286917022
+        ],
+        [
+          -1.112010804344127,
+          -0.10875218251796002
+        ],
+        [
+          -0.8517627618898608,
+          0.07730594802466768
+        ],
+        [
+          -0.40800395765097286,
+          -0.0158903763114499
+        ],
+        [
+          0.06547237799726113,
+          0.260103536566426
+        ],
+        [
+          -0.20325719838693468,
+          0.20446410835469891
+        ],
+        [
+          -0.632099978568971,
+          0.25177444850514347
+        ]
+      ],
+      "mean_intervals": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.23653853833671382,
+          0.8807750326341365
+        ],
+        [
+          0.0,
+          0.3637418198203743
+        ],
+        [
+          0.0,
+          0.2821839587549725
+        ],
+        [
+          0.0,
+          0.3008027277911229
+        ],
+        [
+          0.043936483538763164,
+          0.4763552263476608
+        ],
+        [
+          0.08848921793791506,
+          0.4841268305964953
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.38270513404525713,
+          1.0691099739654666
+        ],
+        [
+          0.04672201445272692,
+          0.4925434887669553
+        ],
+        [
+          0.06826180764589208,
+          0.5888204606166901
+        ],
+        [
+          0.007956484284004363,
+          0.4493589538911423
+        ],
+        [
+          0.0,
+          0.3216316042364342
+        ],
+        [
+          0.08761822318678492,
+          0.48643580672486897
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0656808408343057,
+          0.734300595433695
+        ],
+        [
+          0.045799901612661106,
+          0.49441535808559
+        ],
+        [
+          0.0,
+          0.4166845409173812
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.038019130145241095,
+          0.4862713069768669
+        ],
+        [
+          0.08177245491311787,
+          0.4921761236314925
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.06645083752440371,
+          0.7385193145422629
+        ],
+        [
+          0.0,
+          0.3644717016495773
+        ],
+        [
+          0.0,
+          0.28374970614909945
+        ],
+        [
+          0.0,
+          0.44998654713195596
+        ],
+        [
+          0.0,
+          0.32210428576409333
+        ],
+        [
+          0.0,
+          0.28461599396352805
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.22118700406713343,
+          0.9077868704549802
+        ]
+      ],
+      "prediction_intervals": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          3.0790307109356747
+        ],
+        [
+          0.0,
+          1.0529055806841434
+        ],
+        [
+          0.0,
+          1.5899647112868822
+        ],
+        [
+          0.0,
+          1.0110607766259048
+        ],
+        [
+          0.0,
+          1.8549720576961222
+        ],
+        [
+          0.0,
+          1.2383152925636034
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          3.0873393740662594
+        ],
+        [
+          0.0,
+          1.1879539633952023
+        ],
+        [
+          0.0,
+          1.8691379136811967
+        ],
+        [
+          0.0,
+          1.169671913063622
+        ],
+        [
+          0.0,
+          1.615216070048664
+        ],
+        [
+          0.0,
+          1.1578617848182917
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          2.81972275492619
+        ],
+        [
+          0.0,
+          1.192225367504679
+        ],
+        [
+          0.0,
+          1.7877776649035477
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          2.001565498067723
+        ],
+        [
+          0.0,
+          1.2308349484165095
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          2.827083326190169
+        ],
+        [
+          0.0,
+          1.0111551702712631
+        ],
+        [
+          0.0,
+          1.4182333101598954
+        ],
+        [
+          0.0,
+          1.1593772152879376
+        ],
+        [
+          0.0,
+          1.6907139414850876
+        ],
+        [
+          0.0,
+          1.0500952363005676
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          2.174127214742586
+        ]
+      ],
+      "monthly_prediction_interval": [
+        3.312086601901659,
+        12.320732878533626
+      ]
+    },
+    "model": {
+      "intercept": -0.0028540036309459837,
+      "coefficients": [
+        -0.2345479458897319,
+        -0.551109673169327,
+        -0.4105951769384447,
+        -0.6071927311724726,
+        -0.35080839959132515,
+        -0.21771137578837807,
+        0.16433840111184794,
+        0.005739895570615895,
+        -0.1704326850725707
+      ],
+      "features": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "published_capacity",
+        "days_since_start_divided_by_180",
+        "mean_last_four_matching_weekdays"
+      ],
+      "training_days": 184,
+      "training_start": "2026-05-01",
+      "training_end": "2026-10-31",
+      "design_rank": 10,
+      "design_columns": 10,
+      "training_rmse_raw": 0.45262721525693667
+    },
+    "points": [
+      {
+        "day": "2026-11-01",
+        "predicted": 0.0,
+        "regression": 0.0,
+        "baseline": 0.0,
+        "capacity": 0,
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          1.0222222222222221,
+          0.0
+        ],
+        "raw": 0.003013445174572486
+      },
+      {
+        "day": "2026-11-02",
+        "predicted": 0.5475812218846632,
+        "regression": 0.5475812218846632,
+        "baseline": 0.25,
+        "capacity": 5,
+        "features": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          5,
+          1.0277777777777777,
+          0.25
+        ],
+        "raw": 0.5475812218846632
+      },
+      {
+        "day": "2026-11-03",
+        "predicted": 0.10932115307008852,
+        "regression": 0.10932115307008852,
+        "baseline": 0.0,
+        "capacity": 4,
+        "features": [
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          4,
+          1.0333333333333334,
+          0.0
+        ],
+        "raw": 0.10932115307008852
+      },
+      {
+        "day": "2026-11-04",
+        "predicted": 0.00031279396156318195,
+        "regression": 0.00031279396156318195,
+        "baseline": 0.5,
+        "capacity": 3,
+        "features": [
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          3,
+          1.038888888888889,
+          0.5
+        ],
+        "raw": 0.00031279396156318195
+      },
+      {
+        "day": "2026-11-05",
+        "predicted": 0.05330187168439418,
+        "regression": 0.05330187168439418,
+        "baseline": 0.0,
+        "capacity": 4,
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          4,
+          1.0444444444444445,
+          0.0
+        ],
+        "raw": 0.0533018716843942
+      },
+      {
+        "day": "2026-11-06",
+        "predicted": 0.26710992030612457,
+        "regression": 0.26710992030612457,
+        "baseline": 0.25,
+        "capacity": 4,
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          4,
+          1.05,
+          0.25
+        ],
+        "raw": 0.26710992030612457
+      },
+      {
+        "day": "2026-11-07",
+        "predicted": 0.27850860257409205,
+        "regression": 0.27850860257409205,
+        "baseline": 0.0,
+        "capacity": 3,
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          3,
+          1.0555555555555556,
+          0.0
+        ],
+        "raw": 0.27850860257409216
+      },
+      {
+        "day": "2026-11-08",
+        "predicted": 0.0,
+        "regression": 0.0,
+        "baseline": 0.0,
+        "capacity": 0,
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          1.0611111111111111,
+          0.0
+        ],
+        "raw": 0.003236663335651994
+      },
+      {
+        "day": "2026-11-09",
+        "predicted": 0.7121428411575906,
+        "regression": 0.7121428411575906,
+        "baseline": 0.25,
+        "capacity": 6,
+        "features": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          6,
+          1.0666666666666667,
+          0.25
+        ],
+        "raw": 0.7121428411575906
+      },
+      {
+        "day": "2026-11-10",
+        "predicted": 0.27388277234301595,
+        "regression": 0.27388277234301595,
+        "baseline": 0.0,
+        "capacity": 5,
+        "features": [
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          5,
+          1.0722222222222222,
+          0.0
+        ],
+        "raw": 0.27388277234301595
+      },
+      {
+        "day": "2026-11-11",
+        "predicted": 0.32921281434633853,
+        "regression": 0.32921281434633853,
+        "baseline": 0.5,
+        "capacity": 5,
+        "features": [
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          5,
+          1.0777777777777777,
+          0.5
+        ],
+        "raw": 0.32921281434633853
+      },
+      {
+        "day": "2026-11-12",
+        "predicted": 0.21786349095732163,
+        "regression": 0.21786349095732163,
+        "baseline": 0.0,
+        "capacity": 5,
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          5,
+          1.0833333333333333,
+          0.0
+        ],
+        "raw": 0.21786349095732166
+      },
+      {
+        "day": "2026-11-13",
+        "predicted": 0.10299473735535622,
+        "regression": 0.10299473735535622,
+        "baseline": 0.25,
+        "capacity": 3,
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          3,
+          1.0888888888888888,
+          0.25
+        ],
+        "raw": 0.10299473735535622
+      },
+      {
+        "day": "2026-11-14",
+        "predicted": 0.27873182073517155,
+        "regression": 0.27873182073517155,
+        "baseline": 0.0,
+        "capacity": 3,
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          3,
+          1.0944444444444446,
+          0.0
+        ],
+        "raw": 0.27873182073517166
+      },
+      {
+        "day": "2026-11-15",
+        "predicted": 0.0,
+        "regression": 0.0,
+        "baseline": 0.0,
+        "capacity": 0,
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          1.1,
+          0.0
+        ],
+        "raw": 0.003459881496731501
+      },
+      {
+        "day": "2026-11-16",
+        "predicted": 0.38368925709497426,
+        "regression": 0.38368925709497426,
+        "baseline": 0.25,
+        "capacity": 4,
+        "features": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          4,
+          1.1055555555555556,
+          0.25
+        ],
+        "raw": 0.38368925709497426
+      },
+      {
+        "day": "2026-11-17",
+        "predicted": 0.27410599050409545,
+        "regression": 0.27410599050409545,
+        "baseline": 0.0,
+        "capacity": 5,
+        "features": [
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          5,
+          1.1111111111111112,
+          0.0
+        ],
+        "raw": 0.27410599050409545
+      },
+      {
+        "day": "2026-11-18",
+        "predicted": 0.16509763139557013,
+        "regression": 0.16509763139557013,
+        "baseline": 0.5,
+        "capacity": 4,
+        "features": [
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          4,
+          1.1166666666666667,
+          0.5
+        ],
+        "raw": 0.16509763139557013
+      },
+      {
+        "day": "2026-11-19",
+        "predicted": 0.0,
+        "regression": 0.0,
+        "baseline": 0.0,
+        "capacity": 0,
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0,
+          1.1222222222222222,
+          0.0
+        ],
+        "raw": -0.6036052964408386
+      },
+      {
+        "day": "2026-11-20",
+        "predicted": 0.2675563566282836,
+        "regression": 0.2675563566282836,
+        "baseline": 0.25,
+        "capacity": 4,
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          4,
+          1.1277777777777778,
+          0.25
+        ],
+        "raw": 0.2675563566282836
+      },
+      {
+        "day": "2026-11-21",
+        "predicted": 0.27895503889625106,
+        "regression": 0.27895503889625106,
+        "baseline": 0.0,
+        "capacity": 3,
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          3,
+          1.1333333333333333,
+          0.0
+        ],
+        "raw": 0.2789550388962512
+      },
+      {
+        "day": "2026-11-22",
+        "predicted": 0.0,
+        "regression": 0.0,
+        "baseline": 0.0,
+        "capacity": 0,
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          1.1388888888888888,
+          0.0
+        ],
+        "raw": 0.0036830996578110075
+      },
+      {
+        "day": "2026-11-23",
+        "predicted": 0.38391247525605376,
+        "regression": 0.38391247525605376,
+        "baseline": 0.25,
+        "capacity": 4,
+        "features": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          4,
+          1.1444444444444444,
+          0.25
+        ],
+        "raw": 0.38391247525605376
+      },
+      {
+        "day": "2026-11-24",
+        "predicted": 0.10999080755332705,
+        "regression": 0.10999080755332705,
+        "baseline": 0.0,
+        "capacity": 4,
+        "features": [
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          4,
+          1.15,
+          0.0
+        ],
+        "raw": 0.10999080755332705
+      },
+      {
+        "day": "2026-11-25",
+        "predicted": 0.0009824484448016924,
+        "regression": 0.0009824484448016924,
+        "baseline": 0.5,
+        "capacity": 3,
+        "features": [
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          3,
+          1.1555555555555554,
+          0.5
+        ],
+        "raw": 0.0009824484448016924
+      },
+      {
+        "day": "2026-11-26",
+        "predicted": 0.21830992727948065,
+        "regression": 0.21830992727948065,
+        "baseline": 0.0,
+        "capacity": 5,
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          5,
+          1.1611111111111112,
+          0.0
+        ],
+        "raw": 0.21830992727948068
+      },
+      {
+        "day": "2026-11-27",
+        "predicted": 0.10344117367751524,
+        "regression": 0.10344117367751524,
+        "baseline": 0.25,
+        "capacity": 3,
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          3,
+          1.1666666666666667,
+          0.25
+        ],
+        "raw": 0.10344117367751524
+      },
+      {
+        "day": "2026-11-28",
+        "predicted": 0.11483985594548268,
+        "regression": 0.11483985594548268,
+        "baseline": 0.0,
+        "capacity": 2,
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          2,
+          1.1722222222222223,
+          0.0
+        ],
+        "raw": 0.11483985594548268
+      },
+      {
+        "day": "2026-11-29",
+        "predicted": 0.0,
+        "regression": 0.0,
+        "baseline": 0.0,
+        "capacity": 0,
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0,
+          1.1777777777777778,
+          0.0
+        ],
+        "raw": 0.003906317818890515
+      },
+      {
+        "day": "2026-11-30",
+        "predicted": 0.5484740945289812,
+        "regression": 0.5484740945289812,
+        "baseline": 0.25,
+        "capacity": 5,
+        "features": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          5,
+          1.1833333333333333,
+          0.25
+        ],
+        "raw": 0.5484740945289812
+      }
+    ]
+  },
+  "individual_no_shows": {
+    "status": "evaluated",
+    "prediction_time": "booking time",
+    "metrics": {
+      "validation": {
+        "month": "2026-09",
+        "samples": 63,
+        "no_shows": 9,
+        "logistic_brier": 0.115,
+        "baseline_brier": 0.1233,
+        "average_precision": 0.35952431576204236,
+        "precision_at_half": 0.0,
+        "recall_at_half": 0.0,
+        "f1_at_half": 0.0,
+        "confusion_matrix": [
+          [
+            54,
+            0
+          ],
+          [
+            9,
+            0
+          ]
+        ],
+        "roc": [
+          {
+            "x": 0.0,
+            "y": 0.0,
+            "threshold": null
+          },
+          {
+            "x": 0.018518518518518517,
+            "y": 0.0,
+            "threshold": 0.38512349275522834
+          },
+          {
+            "x": 0.018518518518518517,
+            "y": 0.3333333333333333,
+            "threshold": 0.32437589094597463
+          },
+          {
+            "x": 0.2037037037037037,
+            "y": 0.3333333333333333,
+            "threshold": 0.20215845772672328
+          },
+          {
+            "x": 0.2037037037037037,
+            "y": 0.4444444444444444,
+            "threshold": 0.19845289414189363
+          },
+          {
+            "x": 0.25925925925925924,
+            "y": 0.4444444444444444,
+            "threshold": 0.14605587373266463
+          },
+          {
+            "x": 0.25925925925925924,
+            "y": 0.5555555555555556,
+            "threshold": 0.14037034516129732
+          },
+          {
+            "x": 0.3148148148148148,
+            "y": 0.5555555555555556,
+            "threshold": 0.130225584507369
+          },
+          {
+            "x": 0.3148148148148148,
+            "y": 0.6666666666666666,
+            "threshold": 0.1260317396355203
+          },
+          {
+            "x": 0.6851851851851852,
+            "y": 0.6666666666666666,
+            "threshold": 0.0682765583813713
+          },
+          {
+            "x": 0.6851851851851852,
+            "y": 0.8888888888888888,
+            "threshold": 0.06595643273904207
+          },
+          {
+            "x": 0.7037037037037037,
+            "y": 0.8888888888888888,
+            "threshold": 0.054239084143433876
+          },
+          {
+            "x": 0.7037037037037037,
+            "y": 1.0,
+            "threshold": 0.05202166131434619
+          },
+          {
+            "x": 1.0,
+            "y": 1.0,
+            "threshold": 0.001807046310689743
+          }
+        ],
+        "precision_recall": [
+          {
+            "x": 1.0,
+            "y": 0.14285714285714285
+          },
+          {
+            "x": 1.0,
+            "y": 0.14516129032258066
+          },
+          {
+            "x": 1.0,
+            "y": 0.14754098360655737
+          },
+          {
+            "x": 1.0,
+            "y": 0.15
+          },
+          {
+            "x": 1.0,
+            "y": 0.15254237288135594
+          },
+          {
+            "x": 1.0,
+            "y": 0.15517241379310345
+          },
+          {
+            "x": 1.0,
+            "y": 0.15789473684210525
+          },
+          {
+            "x": 1.0,
+            "y": 0.16071428571428573
+          },
+          {
+            "x": 1.0,
+            "y": 0.16363636363636364
+          },
+          {
+            "x": 1.0,
+            "y": 0.16666666666666666
+          },
+          {
+            "x": 1.0,
+            "y": 0.16981132075471697
+          },
+          {
+            "x": 1.0,
+            "y": 0.17307692307692307
+          },
+          {
+            "x": 1.0,
+            "y": 0.17647058823529413
+          },
+          {
+            "x": 1.0,
+            "y": 0.18
+          },
+          {
+            "x": 1.0,
+            "y": 0.1836734693877551
+          },
+          {
+            "x": 1.0,
+            "y": 0.1875
+          },
+          {
+            "x": 1.0,
+            "y": 0.19148936170212766
+          },
+          {
+            "x": 0.8888888888888888,
+            "y": 0.17391304347826086
+          },
+          {
+            "x": 0.8888888888888888,
+            "y": 0.17777777777777778
+          },
+          {
+            "x": 0.7777777777777778,
+            "y": 0.1590909090909091
+          },
+          {
+            "x": 0.6666666666666666,
+            "y": 0.13953488372093023
+          },
+          {
+            "x": 0.6666666666666666,
+            "y": 0.14285714285714285
+          },
+          {
+            "x": 0.6666666666666666,
+            "y": 0.14634146341463414
+          },
+          {
+            "x": 0.6666666666666666,
+            "y": 0.15
+          },
+          {
+            "x": 0.6666666666666666,
+            "y": 0.15384615384615385
+          },
+          {
+            "x": 0.6666666666666666,
+            "y": 0.15789473684210525
+          },
+          {
+            "x": 0.6666666666666666,
+            "y": 0.16216216216216217
+          },
+          {
+            "x": 0.6666666666666666,
+            "y": 0.16666666666666666
+          },
+          {
+            "x": 0.6666666666666666,
+            "y": 0.17142857142857143
+          },
+          {
+            "x": 0.6666666666666666,
+            "y": 0.17647058823529413
+          },
+          {
+            "x": 0.6666666666666666,
+            "y": 0.18181818181818182
+          },
+          {
+            "x": 0.6666666666666666,
+            "y": 0.1875
+          },
+          {
+            "x": 0.6666666666666666,
+            "y": 0.1935483870967742
+          },
+          {
+            "x": 0.6666666666666666,
+            "y": 0.2
+          },
+          {
+            "x": 0.6666666666666666,
+            "y": 0.20689655172413793
+          },
+          {
+            "x": 0.6666666666666666,
+            "y": 0.21428571428571427
+          },
+          {
+            "x": 0.6666666666666666,
+            "y": 0.2222222222222222
+          },
+          {
+            "x": 0.6666666666666666,
+            "y": 0.23076923076923078
+          },
+          {
+            "x": 0.6666666666666666,
+            "y": 0.24
+          },
+          {
+            "x": 0.6666666666666666,
+            "y": 0.25
+          },
+          {
+            "x": 0.6666666666666666,
+            "y": 0.2608695652173913
+          },
+          {
+            "x": 0.5555555555555556,
+            "y": 0.22727272727272727
+          },
+          {
+            "x": 0.5555555555555556,
+            "y": 0.23809523809523808
+          },
+          {
+            "x": 0.5555555555555556,
+            "y": 0.25
+          },
+          {
+            "x": 0.5555555555555556,
+            "y": 0.2631578947368421
+          },
+          {
+            "x": 0.4444444444444444,
+            "y": 0.2222222222222222
+          },
+          {
+            "x": 0.4444444444444444,
+            "y": 0.23529411764705882
+          },
+          {
+            "x": 0.4444444444444444,
+            "y": 0.25
+          },
+          {
+            "x": 0.4444444444444444,
+            "y": 0.26666666666666666
+          },
+          {
+            "x": 0.3333333333333333,
+            "y": 0.21428571428571427
+          },
+          {
+            "x": 0.3333333333333333,
+            "y": 0.23076923076923078
+          },
+          {
+            "x": 0.3333333333333333,
+            "y": 0.25
+          },
+          {
+            "x": 0.3333333333333333,
+            "y": 0.2727272727272727
+          },
+          {
+            "x": 0.3333333333333333,
+            "y": 0.3
+          },
+          {
+            "x": 0.3333333333333333,
+            "y": 0.3333333333333333
+          },
+          {
+            "x": 0.3333333333333333,
+            "y": 0.375
+          },
+          {
+            "x": 0.3333333333333333,
+            "y": 0.42857142857142855
+          },
+          {
+            "x": 0.3333333333333333,
+            "y": 0.5
+          },
+          {
+            "x": 0.3333333333333333,
+            "y": 0.6
+          },
+          {
+            "x": 0.3333333333333333,
+            "y": 0.75
+          },
+          {
+            "x": 0.2222222222222222,
+            "y": 0.6666666666666666
+          },
+          {
+            "x": 0.1111111111111111,
+            "y": 0.5
+          },
+          {
+            "x": 0.0,
+            "y": 0.0
+          },
+          {
+            "x": 0.0,
+            "y": 1.0
+          }
+        ],
+        "calibration": [
+          {
+            "predicted": 0.07650205219116814,
+            "observed": 0.12244897959183673,
+            "count": 49
+          },
+          {
+            "predicted": 0.28124689966712446,
+            "observed": 0.21428571428571427,
+            "count": 14
+          }
+        ],
+        "model": {
+          "intercept": -2.352134016747315,
+          "coefficients": [
+            0.11084102569542177,
+            -0.058853774005556414,
+            0.14163670439507053,
+            -0.7150972894632498,
+            -0.4605299408105916,
+            0.3273579879672038,
+            -0.09789852715139631,
+            -0.1377486194578843,
+            -0.05354120982964754,
+            0.024403874608351826,
+            -0.06920379590837254
+          ],
+          "mean": [
+            6.65149936868687,
+            0.8318181818181818,
+            0.13636363636363635,
+            0.10909090909090909,
+            99.75386363636366,
+            0.15454545454545454,
+            0.18636363636363637,
+            0.12727272727272726,
+            0.24545454545454545,
+            0.18636363636363637,
+            0.1
+          ],
+          "scale": [
+            7.312561617735369,
+            0.9880588699963747,
+            0.38084291028460737,
+            0.3396643944048989,
+            77.63633997144184,
+            0.36147082458310925,
+            0.38939983488049706,
+            0.333278232360424,
+            0.4303563774016232,
+            0.389399834880497,
+            0.3000000000000001
+          ],
+          "training_samples": 220,
+          "features": [
+            "lead_days",
+            "previous_completed",
+            "previous_no_show",
+            "previous_cancelled",
+            "days_since_completed_or_180",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ]
+        },
+        "roc_auc": 0.677
+      },
+      "holdout": {
+        "month": "2026-10",
+        "samples": 62,
+        "no_shows": 4,
+        "logistic_brier": 0.0657,
+        "baseline_brier": 0.0634,
+        "average_precision": 0.11040413075296795,
+        "precision_at_half": 0.0,
+        "recall_at_half": 0.0,
+        "f1_at_half": 0.0,
+        "confusion_matrix": [
+          [
+            58,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        "roc": [
+          {
+            "x": 0.0,
+            "y": 0.0,
+            "threshold": null
+          },
+          {
+            "x": 0.017241379310344827,
+            "y": 0.0,
+            "threshold": 0.29245161007098486
+          },
+          {
+            "x": 0.05172413793103448,
+            "y": 0.0,
+            "threshold": 0.2446795209274351
+          },
+          {
+            "x": 0.05172413793103448,
+            "y": 0.25,
+            "threshold": 0.20043444068014743
+          },
+          {
+            "x": 0.7068965517241379,
+            "y": 0.25,
+            "threshold": 0.0616439804093206
+          },
+          {
+            "x": 0.7068965517241379,
+            "y": 0.75,
+            "threshold": 0.061002846396347586
+          },
+          {
+            "x": 0.8275862068965517,
+            "y": 0.75,
+            "threshold": 0.05417368188019695
+          },
+          {
+            "x": 0.8275862068965517,
+            "y": 1.0,
+            "threshold": 0.026405513598305105
+          },
+          {
+            "x": 1.0,
+            "y": 1.0,
+            "threshold": 0.0007490889319210171
+          }
+        ],
+        "precision_recall": [
+          {
+            "x": 1.0,
+            "y": 0.06451612903225806
+          },
+          {
+            "x": 1.0,
+            "y": 0.06557377049180328
+          },
+          {
+            "x": 1.0,
+            "y": 0.06666666666666667
+          },
+          {
+            "x": 1.0,
+            "y": 0.06779661016949153
+          },
+          {
+            "x": 1.0,
+            "y": 0.06896551724137931
+          },
+          {
+            "x": 1.0,
+            "y": 0.07017543859649122
+          },
+          {
+            "x": 1.0,
+            "y": 0.07142857142857142
+          },
+          {
+            "x": 1.0,
+            "y": 0.07272727272727272
+          },
+          {
+            "x": 1.0,
+            "y": 0.07407407407407407
+          },
+          {
+            "x": 1.0,
+            "y": 0.07547169811320754
+          },
+          {
+            "x": 1.0,
+            "y": 0.07692307692307693
+          },
+          {
+            "x": 0.75,
+            "y": 0.058823529411764705
+          },
+          {
+            "x": 0.75,
+            "y": 0.06
+          },
+          {
+            "x": 0.75,
+            "y": 0.061224489795918366
+          },
+          {
+            "x": 0.75,
+            "y": 0.0625
+          },
+          {
+            "x": 0.75,
+            "y": 0.06382978723404255
+          },
+          {
+            "x": 0.75,
+            "y": 0.06521739130434782
+          },
+          {
+            "x": 0.75,
+            "y": 0.06666666666666667
+          },
+          {
+            "x": 0.75,
+            "y": 0.06818181818181818
+          },
+          {
+            "x": 0.5,
+            "y": 0.046511627906976744
+          },
+          {
+            "x": 0.25,
+            "y": 0.023809523809523808
+          },
+          {
+            "x": 0.25,
+            "y": 0.024390243902439025
+          },
+          {
+            "x": 0.25,
+            "y": 0.025
+          },
+          {
+            "x": 0.25,
+            "y": 0.02564102564102564
+          },
+          {
+            "x": 0.25,
+            "y": 0.02631578947368421
+          },
+          {
+            "x": 0.25,
+            "y": 0.02702702702702703
+          },
+          {
+            "x": 0.25,
+            "y": 0.027777777777777776
+          },
+          {
+            "x": 0.25,
+            "y": 0.02857142857142857
+          },
+          {
+            "x": 0.25,
+            "y": 0.029411764705882353
+          },
+          {
+            "x": 0.25,
+            "y": 0.030303030303030304
+          },
+          {
+            "x": 0.25,
+            "y": 0.03125
+          },
+          {
+            "x": 0.25,
+            "y": 0.03225806451612903
+          },
+          {
+            "x": 0.25,
+            "y": 0.03333333333333333
+          },
+          {
+            "x": 0.25,
+            "y": 0.034482758620689655
+          },
+          {
+            "x": 0.25,
+            "y": 0.03571428571428571
+          },
+          {
+            "x": 0.25,
+            "y": 0.037037037037037035
+          },
+          {
+            "x": 0.25,
+            "y": 0.038461538461538464
+          },
+          {
+            "x": 0.25,
+            "y": 0.04
+          },
+          {
+            "x": 0.25,
+            "y": 0.041666666666666664
+          },
+          {
+            "x": 0.25,
+            "y": 0.043478260869565216
+          },
+          {
+            "x": 0.25,
+            "y": 0.045454545454545456
+          },
+          {
+            "x": 0.25,
+            "y": 0.047619047619047616
+          },
+          {
+            "x": 0.25,
+            "y": 0.05
+          },
+          {
+            "x": 0.25,
+            "y": 0.05263157894736842
+          },
+          {
+            "x": 0.25,
+            "y": 0.05555555555555555
+          },
+          {
+            "x": 0.25,
+            "y": 0.058823529411764705
+          },
+          {
+            "x": 0.25,
+            "y": 0.0625
+          },
+          {
+            "x": 0.25,
+            "y": 0.06666666666666667
+          },
+          {
+            "x": 0.25,
+            "y": 0.07142857142857142
+          },
+          {
+            "x": 0.25,
+            "y": 0.07692307692307693
+          },
+          {
+            "x": 0.25,
+            "y": 0.08333333333333333
+          },
+          {
+            "x": 0.25,
+            "y": 0.09090909090909091
+          },
+          {
+            "x": 0.25,
+            "y": 0.1
+          },
+          {
+            "x": 0.25,
+            "y": 0.1111111111111111
+          },
+          {
+            "x": 0.25,
+            "y": 0.125
+          },
+          {
+            "x": 0.25,
+            "y": 0.14285714285714285
+          },
+          {
+            "x": 0.25,
+            "y": 0.16666666666666666
+          },
+          {
+            "x": 0.25,
+            "y": 0.2
+          },
+          {
+            "x": 0.25,
+            "y": 0.25
+          },
+          {
+            "x": 0.0,
+            "y": 0.0
+          },
+          {
+            "x": 0.0,
+            "y": 0.0
+          },
+          {
+            "x": 0.0,
+            "y": 0.0
+          },
+          {
+            "x": 0.0,
+            "y": 1.0
+          }
+        ],
+        "calibration": [
+          {
+            "predicted": 0.08099945555398723,
+            "observed": 0.05172413793103448,
+            "count": 58
+          },
+          {
+            "predicted": 0.2548803881094586,
+            "observed": 0.25,
+            "count": 4
+          }
+        ],
+        "model": {
+          "intercept": -2.3346524737095327,
+          "coefficients": [
+            0.12897494752228286,
+            -0.20478311159103516,
+            0.15110785151981698,
+            -0.9197773324921502,
+            -0.40568883895492425,
+            0.3173507528654412,
+            -0.0223643425561833,
+            -0.1205021830597993,
+            -0.1489394173505414,
+            0.06620057269952288,
+            -0.10454227160150822
+          ],
+          "mean": [
+            7.158583627797409,
+            1.0424028268551238,
+            0.1696113074204947,
+            0.13780918727915195,
+            94.18297016097378,
+            0.15901060070671377,
+            0.21554770318021202,
+            0.13427561837455831,
+            0.22968197879858657,
+            0.18021201413427562,
+            0.0812720848056537
+          ],
+          "scale": [
+            7.649194572251452,
+            1.1940535321879522,
+            0.436249099116452,
+            0.3741914331036632,
+            76.44231125460702,
+            0.3656859712507497,
+            0.41120176414255305,
+            0.3409482023485217,
+            0.4206283007760558,
+            0.3843639474455724,
+            0.27325250783294913
+          ],
+          "training_samples": 283,
+          "features": [
+            "lead_days",
+            "previous_completed",
+            "previous_no_show",
+            "previous_cancelled",
+            "days_since_completed_or_180",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ]
+        },
+        "roc_auc": 0.4267
+      }
+    },
+    "selected_method": "logistic_regression"
+  },
+  "retention": {
+    "status": "insufficient_observation",
+    "target_days": 90,
+    "label_diagnostics": [
+      {
+        "cutoff": "2026-06-01",
+        "eligible": 40,
+        "fully_observed": true,
+        "returned_90_days": 29
+      },
+      {
+        "cutoff": "2026-07-01",
+        "eligible": 65,
+        "fully_observed": true,
+        "returned_90_days": 42
+      },
+      {
+        "cutoff": "2026-08-01",
+        "eligible": 80,
+        "fully_observed": true,
+        "returned_90_days": 58
+      },
+      {
+        "cutoff": "2026-09-01",
+        "eligible": 90,
+        "fully_observed": false,
+        "returned_90_days": null
+      },
+      {
+        "cutoff": "2026-10-01",
+        "eligible": 103,
+        "fully_observed": false,
+        "returned_90_days": null
+      }
+    ],
+    "latest_training_cutoff_for_independent_holdout": "2026-05-05",
+    "training_patients_available": 2,
+    "message": "An independent 90-day holdout leaves only 2 patients with prior completed visits for training at 2026-05-05. Additional history or follow-up is needed for a meaningful retention backtest."
+  }
+}

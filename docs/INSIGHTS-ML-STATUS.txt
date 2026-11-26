@@ -1,0 +1,39 @@
+Terra Insights — current model status
+26 November 2026
+
+Current appointment aggregates and their weekday baseline are separate from trained
+workload datasets. They must not be summed or described as the same population.
+
+The uploaded CSV report covers 376 appointments and 122 patients in May-October
+2026, with planned capacity through November. OLS count models forecast completed
+visits and no-show counts. Insights shows coefficients, worked daily contributions,
+October actual/predicted and residual/scatter plots, MAE, RMSE and R-squared.
+Individual no-show logistic evaluation shows ROC/AUC, precision-recall/AP,
+calibration, confusion matrix, coefficients and standardization.
+
+Recorded November estimates: 51.07 completed visits and 6.02 no-shows.
+October individual no-show AUC was 0.4267 with four positive outcomes. Its Brier
+score underperformed the baseline; this limitation remains visible.
+
+The separate workload artifact has its own training history and rolling evaluation.
+The separate follow-up artifact uses generated patient histories. Source metadata
+is retained. These results do not establish performance at an operating clinic.
+OLS uncertainty now uses a reproducible 400-draw residual block bootstrap (seed 42,
+seven-day blocks aligned to weekdays). Insights shows coefficient confidence ranges,
+daily fitted-mean confidence and outcome prediction ranges, monthly prediction
+ranges, exact tables and a graph. Nominal 95% coverage is approximate and has not
+been validated on future observations. Features and capacity are treated as fixed.
+November regression total ranges: completed visits 39.1194-62.1772; no-shows
+3.3121-12.3207. Monthly bounds use sums within each bootstrap draw. Existing point
+forecasts, selected methods and held-out metrics are unchanged.
+
+The uploaded dataset's independent 90-day retention evaluation remains incomplete:
+additional mature history and a retention fitting/evaluation implementation are
+needed. See RETENTION-HISTORY-DATASET-PROMPT.txt and CSV-DATASET-REPORT.txt.
+
+Reproduce CSV validation from the repository root:
+.venv\Scripts\python.exe -B -m backend.app.check_clinic_csv "C:\Users\Asus\Desktop\PROJECTS\New folder" --output backend/data/clinic-csv-evaluation.json
+
+Read the report before overwriting it with a replacement dataset. Retraining or
+report regeneration is explicit, never performed during an API request. Earlier
+model status and its historical numbers are archived in archive/handoffs/docs/.

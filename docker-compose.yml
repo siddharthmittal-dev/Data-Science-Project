@@ -1,0 +1,47 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: terra
+      POSTGRES_PASSWORD: terra_local_only
+      POSTGRES_DB: terra
+    ports:
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - terra_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U terra"]
+      interval: 3s
+      retries: 20
+  redis:
+    profiles: ["rag"]
+    image: redis:8-alpine
+    ports:
+      - "127.0.0.1:6380:6379"
+    command: ["redis-server", "--save", "", "--appendonly", "no", "--maxmemory", "64mb", "--maxmemory-policy", "allkeys-lru"]
+  rag-api:
+    profiles: ["rag"]
+    build: ./backend
+    env_file:
+      - path: ./backend/.env
+        required: false
+    environment:
+      DATABASE_URL: postgresql+psycopg://terra:terra_local_only@db:5432/terra
+      TEST_DATABASE_URL: postgresql+psycopg://terra:terra_local_only@db:5432/terra_test
+      RAG_INDEX_PATH: /var/lib/terra-rag/index.json
+      RAG_REDIS_URL: redis://redis:6379/0
+      RAG_OCR_EXECUTABLE: tesseract
+    volumes:
+      - ./backend/rag-local:/var/lib/terra-rag
+      - ./backend/app:/app/app:ro
+      - ./backend/data/clinic-csv-evaluation.json:/app/data/clinic-csv-evaluation.json:ro
+    ports:
+      - "127.0.0.1:${RAG_API_PORT:-8000}:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+
+volumes:
+  terra_pgdata:

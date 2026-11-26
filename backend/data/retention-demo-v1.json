@@ -1,0 +1,307 @@
+{
+  "schema_version": 1,
+  "features": [
+    "days_since_completed",
+    "completed_90",
+    "completed_180",
+    "mean_gap",
+    "cancelled_180",
+    "no_show_180"
+  ],
+  "seed": 57,
+  "source": "synthetic",
+  "population": 500,
+  "observation_end": "2026-11-21",
+  "trained_at": "2026-11-21T00:08:37.037004+00:00",
+  "training_label_end": "2026-04-26",
+  "validation_origin": "2026-05-25",
+  "holdout_origin": "2026-08-23",
+  "training_samples": 4419,
+  "baseline_probability": 0.5691382765531062,
+  "selected_method": "logistic",
+  "metrics": {
+    "validation": {
+      "logistic": {
+        "samples": 499,
+        "return_rate": 0.569,
+        "brier": 0.24,
+        "roc_auc": 0.703,
+        "average_precision": 0.769,
+        "precision_at_half": 0.595,
+        "recall_at_half": 0.901,
+        "calibration": [
+          {
+            "range": [
+              0,
+              0.2
+            ],
+            "count": 6,
+            "predicted": 0.137,
+            "observed": 0.167
+          },
+          {
+            "range": [
+              0.2,
+              0.4
+            ],
+            "count": 28,
+            "predicted": 0.333,
+            "observed": 0.25
+          },
+          {
+            "range": [
+              0.4,
+              0.6
+            ],
+            "count": 97,
+            "predicted": 0.519,
+            "observed": 0.495
+          },
+          {
+            "range": [
+              0.6,
+              0.8
+            ],
+            "count": 171,
+            "predicted": 0.698,
+            "observed": 0.415
+          },
+          {
+            "range": [
+              0.8,
+              1.0
+            ],
+            "count": 197,
+            "predicted": 0.896,
+            "observed": 0.797
+          }
+        ]
+      },
+      "baseline": {
+        "samples": 499,
+        "return_rate": 0.569,
+        "brier": 0.27,
+        "roc_auc": 0.5,
+        "average_precision": 0.569,
+        "precision_at_half": 0.569,
+        "recall_at_half": 1.0,
+        "calibration": [
+          {
+            "range": [
+              0.6,
+              0.8
+            ],
+            "count": 499,
+            "predicted": 0.728,
+            "observed": 0.569
+          }
+        ]
+      }
+    },
+    "holdout": {
+      "logistic": {
+        "samples": 499,
+        "return_rate": 0.499,
+        "brier": 0.217,
+        "roc_auc": 0.723,
+        "average_precision": 0.772,
+        "precision_at_half": 0.584,
+        "recall_at_half": 0.751,
+        "calibration": [
+          {
+            "range": [
+              0,
+              0.2
+            ],
+            "count": 6,
+            "predicted": 0.128,
+            "observed": 0.167
+          },
+          {
+            "range": [
+              0.2,
+              0.4
+            ],
+            "count": 75,
+            "predicted": 0.33,
+            "observed": 0.36
+          },
+          {
+            "range": [
+              0.4,
+              0.6
+            ],
+            "count": 213,
+            "predicted": 0.505,
+            "observed": 0.319
+          },
+          {
+            "range": [
+              0.6,
+              0.8
+            ],
+            "count": 149,
+            "predicted": 0.681,
+            "observed": 0.671
+          },
+          {
+            "range": [
+              0.8,
+              1.0
+            ],
+            "count": 56,
+            "predicted": 0.857,
+            "observed": 0.946
+          }
+        ]
+      },
+      "baseline": {
+        "samples": 499,
+        "return_rate": 0.499,
+        "brier": 0.255,
+        "roc_auc": 0.5,
+        "average_precision": 0.499,
+        "precision_at_half": 0.499,
+        "recall_at_half": 1.0,
+        "calibration": [
+          {
+            "range": [
+              0.4,
+              0.6
+            ],
+            "count": 499,
+            "predicted": 0.569,
+            "observed": 0.499
+          }
+        ]
+      }
+    }
+  },
+  "model": {
+    "mean": [
+      63.0,
+      1.1896356641774157,
+      2.3672776646300067,
+      98.19409606008382,
+      0.2769857433808554,
+      0.14799728445349628
+    ],
+    "scale": [
+      61.11198583998214,
+      0.9381272135474032,
+      1.5603502799762712,
+      57.746569059119764,
+      0.5221869538560999,
+      0.3838826242405246
+    ],
+    "coefficients": [
+      0.3227388427575309,
+      0.11823252876985858,
+      0.8297420556071327,
+      -0.42172901946854907,
+      0.3651343202769923,
+      0.11852370325869585
+    ],
+    "intercept": 1.2807056491496422,
+    "calibration_slope": 0.6936566912902639,
+    "calibration_intercept": -0.48597031942387725
+  },
+  "examples": [
+    {
+      "name": "Example patient 001",
+      "features": [
+        93.0,
+        0,
+        2,
+        51.75,
+        1,
+        0
+      ],
+      "probability": 0.696
+    },
+    {
+      "name": "Example patient 002",
+      "features": [
+        221.0,
+        0,
+        0,
+        149.33333333333334,
+        0,
+        0
+      ],
+      "probability": 0.396
+    },
+    {
+      "name": "Example patient 003",
+      "features": [
+        549.0,
+        0,
+        0,
+        180.0,
+        0,
+        0
+      ],
+      "probability": 0.651
+    },
+    {
+      "name": "Example patient 004",
+      "features": [
+        19.0,
+        2,
+        4,
+        39.23529411764706,
+        1,
+        0
+      ],
+      "probability": 0.822
+    },
+    {
+      "name": "Example patient 005",
+      "features": [
+        278.0,
+        0,
+        0,
+        198.0,
+        0,
+        0
+      ],
+      "probability": 0.387
+    },
+    {
+      "name": "Example patient 006",
+      "features": [
+        46.0,
+        1,
+        2,
+        92.42857142857143,
+        0,
+        0
+      ],
+      "probability": 0.513
+    },
+    {
+      "name": "Example patient 007",
+      "features": [
+        239.0,
+        0,
+        0,
+        30.266666666666666,
+        0,
+        0
+      ],
+      "probability": 0.562
+    },
+    {
+      "name": "Example patient 008",
+      "features": [
+        118.0,
+        0,
+        1,
+        52.45454545454545,
+        0,
+        0
+      ],
+      "probability": 0.515
+    }
+  ]
+}

@@ -2,6 +2,8 @@
 .tools/
 .wrangler/
 node_modules/
+.next/
+!.env.local.example
 .venv/
 venv/
 __pycache__/
@@ -18,6 +20,7 @@ __pycache__/
 *.sqlite
 *.sqlite3
 uploads/
+rag-local/
 model-cache/
 models/
 logs/
@@ -33,3 +36,45 @@ coverage/
 Thumbs.db
 .vscode/
 .idea/
+
+# Local AI-assistant instructions and working notes (not application source)
+.claude/
+.impeccable/
+/CLAUDE.md
+/CONTINUE-PROMPT.md
+/PROJECT-DOCUMENTATION.txt
+/todo.md
+/Agentic-Clinic-Terra-Frontend-Details.md
+/Architecture-and-development-plan.md
+/frontend/AGENTS.md
+
+# Superseded handoffs, design archives and machine-specific setup research
+/docs/archive/
+/docs/reference/
+/docs/local-notes/
+/docs/surfaces/
+/docs/PHASE-0-SETUP.md
+/docs/CLOUDFLARE-ORACLE-FEASIBILITY.md
+/docs/UPSTREAM-README.md
+/docs/progress.md
+/docs/decisions.md
+
+# Local plans, generation prompts and session/QA reports.
+# Keep operational account instructions and the model evaluation documentation.
+/docs/*.txt
+!/docs/ACCOUNT-SETUP.txt
+!/docs/CSV-DATASET-REPORT.txt
+!/docs/INSIGHTS-ML-STATUS.txt
+
+# Unused create-next-app documentation and decorative starter assets
+/frontend/README.md
+/frontend/public/file.svg
+/frontend/public/globe.svg
+/frontend/public/next.svg
+/frontend/public/vercel.svg
+/frontend/public/window.svg
+
+# Additional generated build/debug output
+*.tsbuildinfo
+*.log
+.vercel/

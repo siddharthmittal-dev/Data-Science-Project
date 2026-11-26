@@ -1,0 +1,58 @@
+Terra account access — 26 November 2026
+
+CURRENT STATUS: registration is closed. The public clinic home and /login show
+clinic information followed by sign-in. Patient, Receptionist and Owner buttons
+fill email only; enter the existing password yourself. Switching workspace buttons
+clears the password. Existing authorized dashboards open after successful login.
+The patient login is now a universal presentation profile for the five approved
+TC-PT case PDFs. Select one record before asking about prescriptions or history.
+Everyone using this login can access all five records; it is not a separate
+identity for each named patient. Owner can review them; receptionist cannot view
+these private historical imports. Original PDF labels and instructions remain.
+The existing Patient, Receptionist and Owner accounts remain active. Passwords
+were supplied directly in chat and are not saved in the repository.
+SIGNUP_ENABLED defaults to false; the backend rejects new registration even if
+someone sends a direct API request. Existing accounts live in the private local
+database and are not copied by cloning this repository. Provisioning accounts for
+a fresh database remains a separate operator step; do not reopen public signup.
+
+The following is historical setup information, not current instructions.
+
+During the previous setup, the now-removed Create an account form was used.
+Enter a name, email and a password of 12–128 characters, then choose a role.
+One registered account is allowed for each role: Patient, Receptionist, Owner.
+Owner is displayed as Owner; the existing API/database role remains admin.
+Registration signs the new account in. Sign out before creating the next account.
+Roles disappear from sign-up after registration. Duplicate role/email requests
+are rejected by the database, including competing requests.
+Sign-in uses email and password only; role is read from the stored account.
+
+Passwords use individually salted scrypt hashes. Sessions last eight hours and
+use HttpOnly, SameSite=Lax cookies. COOKIE_SECURE must be true when using HTTPS.
+Successful authentication rotates the browser's current session token.
+The former /api/auth/demo-login endpoint has been removed.
+
+The migration retains existing users, appointments and patient libraries. Existing
+unregistered fixture identities cannot sign in. New registrations create separate
+identities and do not inherit someone else's patient records. Existing fixture
+emails remain reserved by their existing records; register a different email.
+The migration expires existing role-picker sessions, requiring sign-in again.
+Do not rerun the database seed to apply this change: it clears application data.
+
+Current account emails are patient@terra.test, receptionist@terra.test and
+owner@terra.test. Their passwords are not included in the repository.
+There is no email verification, password recovery, MFA or login rate limiting yet.
+This requested first-registration role selection allows whoever first registers
+to claim Owner or Receptionist. Register all three intended accounts before
+sharing access. Role restrictions remain enforced after sign-in.
+
+API endpoints:
+GET /api/auth/available-roles
+POST /api/auth/signup {name,email,password,role}
+POST /api/auth/login {email,password}
+POST /api/auth/logout
+GET /api/auth/me
+
+Migration command (from backend):
+..\.venv\Scripts\python.exe -B -m alembic upgrade head
+For a new container image, include migration 0004 before applying migrations.

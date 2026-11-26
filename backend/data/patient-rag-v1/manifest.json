@@ -1,0 +1,85 @@
+{
+  "synthetic": true,
+  "schema_version": 1,
+  "as_of": "2026-11-24T12:00:00+05:30",
+  "patients": [
+    {
+      "patient_id": "P001",
+      "name": "Maya Patel"
+    },
+    {
+      "patient_id": "P002",
+      "name": "Jordan Lee"
+    },
+    {
+      "patient_id": "P003",
+      "name": "Casey Morgan"
+    }
+  ],
+  "documents": [
+    {
+      "document_id": "P001-visit",
+      "patient_id": "P001",
+      "kind": "visit",
+      "path": "documents/P001/visit.pdf",
+      "date": "2026-11-17",
+      "page_count": 1
+    },
+    {
+      "document_id": "P001-prescription",
+      "patient_id": "P001",
+      "kind": "prescription",
+      "path": "documents/P001/prescription.pdf",
+      "date": "2026-11-17",
+      "page_count": 1
+    },
+    {
+      "document_id": "P002-visit",
+      "patient_id": "P002",
+      "kind": "visit",
+      "path": "documents/P002/visit.pdf",
+      "date": "2026-11-17",
+      "page_count": 1
+    },
+    {
+      "document_id": "P002-prescription",
+      "patient_id": "P002",
+      "kind": "prescription",
+      "path": "documents/P002/prescription.pdf",
+      "date": "2026-11-17",
+      "page_count": 1
+    },
+    {
+      "document_id": "P003-visit",
+      "patient_id": "P003",
+      "kind": "visit",
+      "path": "documents/P003/visit.pdf",
+      "date": "2026-11-17",
+      "page_count": 1
+    },
+    {
+      "document_id": "P003-prescription",
+      "patient_id": "P003",
+      "kind": "prescription",
+      "path": "documents/P003/prescription.pdf",
+      "date": "2026-11-17",
+      "page_count": 1
+    }
+  ],
+  "appointments": [
+    {
+      "fixture_id": "A-P001",
+      "patient_id": "P001",
+      "status": "booked",
+      "starts_at": "2026-12-01T09:00:00+05:30",
+      "clinician": "Dr. Demo Clinician"
+    },
+    {
+      "fixture_id": "A-P002",
+      "patient_id": "P002",
+      "status": "booked",
+      "starts_at": "2026-12-01T10:00:00+05:30",
+      "clinician": "Dr. Demo Clinician"
+    }
+  ]
+}

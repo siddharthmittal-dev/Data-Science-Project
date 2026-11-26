@@ -1,0 +1,35 @@
+﻿{
+    "provenance":  "User-supplied generated research dataset; fictional patients and clinicians. Original PDFs are invalid for dispensing.",
+    "patient_access":  "Five distinct TC-PT cases under the explicitly approved shared patient@terra.test presentation account; not individual patient authentication.",
+    "observed_history":  "Appointments May-October 2026; calendar includes November 2026 planned capacity.",
+    "files":  [
+                  {
+                      "filename":  "appointments.csv",
+                      "sha256":  "2f0b078f027f3eb129d269141510ea48ad0d54839f33cb415c7ffac81a1cb680"
+                  },
+                  {
+                      "filename":  "clinic_calendar.csv",
+                      "sha256":  "0524e7351d29719daa62a6cd00652a3ee1baa357c0a1fcef9611ef671ef285ee"
+                  },
+                  {
+                      "filename":  "Terra_01_Allergy.pdf",
+                      "sha256":  "5d28db400ee60c44f20c0534f11fee4f0bcf1535c4a4a86d8ee3cf7bd0a96664"
+                  },
+                  {
+                      "filename":  "Terra_02_Hypertension.pdf",
+                      "sha256":  "91991cd7ae54b148b7da2af0e45e655f028e9702d1208dd37c8c41cefccafa90"
+                  },
+                  {
+                      "filename":  "Terra_03_Reflux.pdf",
+                      "sha256":  "9de8249d77598617c7e00f147e86d0a945adb4545ebb065556658545c971a99c"
+                  },
+                  {
+                      "filename":  "Terra_04_Dermatology.pdf",
+                      "sha256":  "350d173b0df8e6630588671e9c74b388011a3069602592982818ad4f6ca86244"
+                  },
+                  {
+                      "filename":  "Terra_05_Musculoskeletal.pdf",
+                      "sha256":  "8016ada32520ef3915dda3c44f465bed4bde446a6a0a567f9890376793dec8a0"
+                  }
+              ]
+}
